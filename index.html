@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Graffiti Street Art Text Generator | Urban Clothing &amp; Hip-Hop Brand Design Tool | GlamorousGrammyGlowUp</title>
+<style>
+        :root {
+            --primary: #4F46E5;
+            --secondary: #312E81;
+            --accent: #F59E0B;
+            --accent-soft: #f8e7b0;
+            --neural-midnight: #0b1020;
+            --text-primary: #ffffff;
+            --text-muted: #b8c0d9;
+            --panel-bg: #131c33;
+            --panel-deep: #0f172a;
+            --border-color: #2d3b66;
+            color-scheme: dark;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--neural-midnight) 0%, #151f3d 55%, #231942 100%);
+            color: var(--text-primary);
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 95%;
+            margin: 0 auto;
+            background: rgba(10, 18, 38, 0.96);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(79, 70, 229, 0.18);
+            border: 1px solid rgba(245, 158, 11, 0.22);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--accent) 0%, #fff1b8 18%, var(--primary) 70%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            font-size: 1.1em;
+        }
+
+        .announcement-bar {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 0 auto 32px;
+            border-radius: 999px;
+            border: 1px solid rgba(245, 158, 11, 0.28);
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.12), rgba(79, 70, 229, 0.16), rgba(245, 158, 11, 0.12));
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.14);
+            white-space: nowrap;
+        }
+
+        .announcement-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 18s linear infinite;
+        }
+
+        .announcement-text {
+            display: inline-flex;
+            align-items: center;
+            gap: 28px;
+            padding: 12px 28px;
+            font-size: 0.96em;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: #fff4cc;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        @keyframes marqueeScroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .announcement-track {
+                animation: none;
+            }
+        }
+
+        .how-to-box {
+            margin-bottom: 28px;
+            padding: 24px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.18), rgba(245, 158, 11, 0.10));
+            border: 1px solid rgba(245, 158, 11, 0.28);
+            box-shadow: 0 6px 24px rgba(79, 70, 229, 0.16);
+        }
+
+        .how-to-box h2,
+        .examples-box h2 {
+            color: var(--accent);
+            font-size: 1.35em;
+            margin-bottom: 12px;
+        }
+
+        .how-to-box p,
+        .examples-box p {
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .how-to-steps {
+            display: grid;
+            gap: 12px;
+        }
+
+        .how-step {
+            background: rgba(10, 18, 38, 0.55);
+            border: 1px solid rgba(79, 70, 229, 0.22);
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .how-step strong {
+            color: #ffffff;
+        }
+
+        .tip-box,
+        .pdf-box {
+            margin-top: 14px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: rgba(245, 158, 11, 0.10);
+            border: 1px solid rgba(245, 158, 11, 0.28);
+            color: var(--accent-soft);
+        }
+
+        .examples-box {
+            margin-bottom: 28px;
+            padding: 24px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(13, 19, 40, 0.96), rgba(22, 33, 67, 0.92));
+            border: 1px solid rgba(79, 70, 229, 0.26);
+            box-shadow: 0 6px 24px rgba(79, 70, 229, 0.12);
+        }
+
+        .example-grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .example-card {
+            background: rgba(8, 14, 30, 0.72);
+            border: 1px solid rgba(245, 158, 11, 0.18);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .example-card h3 {
+            color: #ffffff;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .example-card .use-case {
+            color: var(--accent-soft);
+            font-size: 0.95em;
+            margin-bottom: 14px;
+        }
+
+        .recipe-block {
+            margin-top: 12px;
+            padding: 14px;
+            border-radius: 12px;
+            background: rgba(19, 28, 51, 0.92);
+            border: 1px solid rgba(45, 59, 102, 0.95);
+        }
+
+        .recipe-block strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .recipe-block ol {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .recipe-block li {
+            margin-bottom: 8px;
+        }
+
+        .recipe-text {
+            color: var(--text-muted);
+            font-size: 0.96em;
+        }
+
+        details {
+            margin-bottom: 20px;
+            background: var(--panel-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.10);
+        }
+
+        summary {
+            cursor: pointer;
+            padding: 20px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            background: rgba(79, 70, 229, 0.10);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            user-select: none;
+            list-style: none;
+        }
+
+        summary:hover {
+            background: rgba(245, 158, 11, 0.08);
+            padding-left: 28px;
+        }
+
+        summary::before {
+            content: "▶ ";
+            color: var(--accent);
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .details-content {
+            padding: 24px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .field-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .lock-btn {
+            min-width: 85px;
+            padding: 0 16px;
+            height: 48px;
+            border-radius: 8px;
+            background: rgba(79, 70, 229, 0.28);
+            color: #eef2ff;
+            border: 1px solid rgba(129, 140, 248, 0.65);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .lock-btn.locked {
+            background: rgba(245, 158, 11, 0.22);
+            border-color: var(--accent);
+            color: #ffe6a7;
+        }
+
+        .lock-btn:hover {
+            background: rgba(255, 255, 255, 0.10);
+            transform: scale(1.03);
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--accent);
+            font-size: 0.95em;
+        }
+
+        select, .custom-input {
+            padding: 14px 18px;
+            height: 48px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: #182443;
+            color: #ffffff;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            flex-grow: 1;
+            width: 100%;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        select option {
+            background-color: #182443 !important;
+            color: #ffffff !important;
+            padding: 8px !important;
+        }
+
+        select option:hover,
+        select option:focus,
+        select option:checked {
+            background-color: var(--primary) !important;
+            color: #ffffff !important;
+        }
+
+        select:focus, .custom-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
+        }
+
+        select:hover, .custom-input:hover {
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+
+        select.has-value {
+            border-color: var(--accent);
+            background-color: rgba(245, 158, 11, 0.06);
+        }
+
+        .custom-section {
+            margin-top: 24px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.20);
+            border-radius: 12px;
+            border: 1px dashed var(--border-color);
+        }
+
+        .control-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        button {
+            padding: 16px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        button:nth-child(1) {
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            color: #ffffff;
+        }
+
+        button:nth-child(2) {
+            background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%);
+            color: #1f2937;
+        }
+
+        button:nth-child(3) {
+            background: rgba(37, 99, 235, 0.92);
+            color: var(--text-primary);
+        }
+
+        button:nth-child(4) {
+            background: rgba(71, 85, 105, 0.82);
+            color: var(--text-primary);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.28);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #output {
+            margin-top: 24px;
+            padding: 24px;
+            background: rgba(9, 15, 31, 0.96);
+            border: 2px solid rgba(245, 158, 11, 0.28);
+            border-radius: 12px;
+            min-height: 120px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #e2e8f0;
+            resize: vertical;
+            width: 100%;
+        }
+
+        .status-line {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .warning {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+
+        .triple-output-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .output-card {
+            background: rgba(9, 15, 31, 0.96);
+            border: 2px solid rgba(245, 158, 11, 0.18);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .output-card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+
+        .mini-output {
+            min-height: 240px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', monospace;
+            font-size: 0.92em;
+            line-height: 1.55;
+            color: #e2e8f0;
+            resize: vertical;
+            width: 100%;
+            padding: 16px;
+            background: rgba(9, 15, 31, 0.96);
+            border: 1px solid rgba(245, 158, 11, 0.18);
+            border-radius: 10px;
+        }
+
+        .inline-custom-wrap {
+            margin-top: 16px;
+        }
+
+        .inline-custom-wrap label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+
+        .marketing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .copy-small-btn {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.96) 0%, rgba(251, 191, 36, 0.96) 100%);
+            color: #1f2937;
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        .marketing-note {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.14), rgba(245, 158, 11, 0.08));
+            border: 1px solid rgba(245, 158, 11, 0.18);
+            color: var(--accent-soft);
+        }
+
+        .side-scroll-wrap {
+            position: fixed;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 999;
+        }
+
+        .side-scroll-btn {
+            width: 56px;
+            height: 56px;
+            padding: 0;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.24), rgba(79, 70, 229, 0.92) 45%, rgba(245, 158, 11, 0.92) 100%);
+            color: #ffffff;
+            border: 1px solid rgba(245, 158, 11, 0.45);
+            box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.12), 0 0 18px rgba(79, 70, 229, 0.45), 0 0 28px rgba(245, 158, 11, 0.28);
+            font-size: 1.4em;
+            line-height: 1;
+        }
+
+        .side-scroll-btn:hover {
+            transform: translateY(-3px) scale(1.06);
+            box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2), 0 0 24px rgba(79, 70, 229, 0.6), 0 0 34px rgba(245, 158, 11, 0.42);
+        }
+
+        
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        body::before {
+            background:
+                radial-gradient(circle at 15% 20%, rgba(245, 158, 11, 0.16), transparent 28%),
+                radial-gradient(circle at 80% 18%, rgba(79, 70, 229, 0.22), transparent 30%),
+                radial-gradient(circle at 70% 76%, rgba(124, 58, 237, 0.18), transparent 30%),
+                radial-gradient(circle at 25% 82%, rgba(56, 189, 248, 0.10), transparent 24%);
+            filter: blur(8px);
+            animation: backgroundFloat 16s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            background-image:
+                linear-gradient(115deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 16px),
+                linear-gradient(25deg, rgba(245, 158, 11, 0.04) 0 1px, transparent 1px 14px);
+            opacity: 0.28;
+            mix-blend-mode: screen;
+            animation: backgroundDrift 22s linear infinite;
+        }
+
+        @keyframes backgroundFloat {
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(0, -12px, 0) scale(1.03); }
+            100% { transform: translate3d(0, 12px, 0) scale(1.06); }
+        }
+
+        @keyframes backgroundDrift {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-36px, 28px, 0); }
+        }
+
+        .container {
+            position: relative;
+            backdrop-filter: blur(8px);
+        }
+
+        select[multiple] {
+            min-height: 176px;
+            height: auto;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        select[multiple] option {
+            padding: 8px 10px !important;
+            margin-bottom: 2px;
+            border-radius: 6px;
+        }
+
+        .history-panel {
+            display: grid;
+            gap: 14px;
+        }
+
+        .history-topline {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .history-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .history-item {
+            background: rgba(8, 14, 30, 0.72);
+            border: 1px solid rgba(245, 158, 11, 0.16);
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .history-item-title {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .history-item-meta {
+            color: var(--text-muted);
+            font-size: 0.88em;
+            margin-bottom: 10px;
+        }
+
+        .history-item-preview {
+            color: var(--text-muted);
+            font-size: 0.94em;
+            line-height: 1.55;
+            white-space: pre-wrap;
+            background: rgba(19, 28, 51, 0.75);
+            border: 1px solid rgba(45, 59, 102, 0.95);
+            border-radius: 12px;
+            padding: 12px;
+            max-height: 150px;
+            overflow: auto;
+        }
+
+        .history-actions {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .history-actions button {
+            padding: 10px 14px;
+            font-size: 0.82em;
+        }
+
+        .history-empty {
+            color: var(--text-muted);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .site-footer {
+            margin-top: 28px;
+            text-align: center;
+            color: var(--accent-soft);
+            font-size: 0.92em;
+            letter-spacing: 0.4px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(245, 158, 11, 0.16);
+        }
+
+
+        @media (max-width: 768px) {
+            .side-scroll-wrap {
+                right: 10px;
+                bottom: 16px;
+                top: auto;
+                transform: none;
+            }
+
+            .side-scroll-btn {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .control-bar {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="side-scroll-wrap">
+<button aria-label="Scroll to top" class="side-scroll-btn" onclick="scrollToTopSmooth(event)" title="Scroll to top" type="button">↑</button>
+<button aria-label="Scroll to bottom" class="side-scroll-btn" onclick="scrollToBottomSmooth(event)" title="Scroll to bottom" type="button">↓</button>
+</div>
+<div id="main-app">
+<div class="container">
+<h1>Raw Graffiti Text Art for Your Brand</h1>
+<div class="announcement-bar" aria-label="Announcement">
+<div class="announcement-track">
+<span class="announcement-text">✨ Luxury Generator Bundle • Instant Download • Premium Images •</span>
+<span class="announcement-text" aria-hidden="true">✨ Luxury Generator Bundle • Instant Download • Premium Images •</span>
+</div>
+</div>
+<p class="subtitle">Bold graffiti vibes with Glam energy, royal blue confidence, and gold-level shine</p>
+<details open="">
+<summary>🎨 Spray Paint Style</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Spray Paint Style</label>
+<div class="field-row">
+<select class="multi-pick-select" data-logic="standard" id="spray_paint_style" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6">
+<option value="">None</option><option value="Advanced wildstyle featuring interconnected characters, elaborate decorative elements, and multi-layered spray paint effects">Advanced wildstyle featuring interconnected characters, elaborate decorative elements, and multi-layered spray paint effects</option><option value="Aggressive throw-up with thick outlines, minimal fill, and high-impact contrast using black and white spray">Aggressive throw-up with thick outlines, minimal fill, and high-impact contrast using black and white spray</option><option value="Architectural blockbuster featuring structured letters, solid fills, and dramatic shadow effects for wall prominence">Architectural blockbuster featuring structured letters, solid fills, and dramatic shadow effects for wall prominence</option><option value="Art deco graffiti fusion with elegant linework, mirrored symmetry, and luxury metallic accenting">Art deco graffiti fusion with elegant linework, mirrored symmetry, and luxury metallic accenting</option><option value="Block letter style with geometric precision, hard shadows, and bold primary color combinations for maximum visibility">Block letter style with geometric precision, hard shadows, and bold primary color combinations for maximum visibility</option><option value="Blockbuster letters with solid fills, clean edges, and high-contrast color schemes suitable for large wall coverage">Blockbuster letters with solid fills, clean edges, and high-contrast color schemes suitable for large wall coverage</option><option value="Bold blockbuster design with thick strokes, high contrast outlines, and vibrant neon color selections">Bold blockbuster design with thick strokes, high contrast outlines, and vibrant neon color selections</option><option value="Bubble letter design with chrome effect, 3D depth shadows, and luminous glow in cool blue tones">Bubble letter design with chrome effect, 3D depth shadows, and luminous glow in cool blue tones</option><option value="Calligraffiti style blending fluid handstyle scripts with upscale ornamental swashes and dramatic contrast">Calligraffiti style blending fluid handstyle scripts with upscale ornamental swashes and dramatic contrast</option><option value="Cartoon-inspired bubble graffiti with exaggerated curves, playful contouring, and candy-coated gloss effects">Cartoon-inspired bubble graffiti with exaggerated curves, playful contouring, and candy-coated gloss effects</option><option value="Chrome calligraphy graffiti with reflective strokes, luxurious flourishes, and smooth dimensional highlights">Chrome calligraphy graffiti with reflective strokes, luxurious flourishes, and smooth dimensional highlights</option><option value="Classic bubble letters with thick rounded forms, soft shadows, and pastel color gradients on urban concrete">Classic bubble letters with thick rounded forms, soft shadows, and pastel color gradients on urban concrete</option><option value="Complex wildstyle incorporating hidden letters, interlocking elements, and sophisticated color theory with metallic accents">Complex wildstyle incorporating hidden letters, interlocking elements, and sophisticated color theory with metallic accents</option><option value="Dimensional bubble letters with glossy effects, soft outlines, and elegant pastel color palettes on urban surfaces">Dimensional bubble letters with glossy effects, soft outlines, and elegant pastel color palettes on urban surfaces</option><option value="Dynamic wildstyle incorporating flowing ribbons, integrated arrows, and complex color transitions with spray effects">Dynamic wildstyle incorporating flowing ribbons, integrated arrows, and complex color transitions with spray effects</option><option value="Elaborate wildstyle with character merging, decorative flourishes, and multi-color spray paint layering techniques">Elaborate wildstyle with character merging, decorative flourishes, and multi-color spray paint layering techniques</option><option value="Elegant ribbon-letter graffiti with sweeping curves, polished outlines, and fashion-editorial energy">Elegant ribbon-letter graffiti with sweeping curves, polished outlines, and fashion-editorial energy</option><option value="Energetic throw-up with dripping paint, quick strokes, and authentic street artist technique and spontaneity">Energetic throw-up with dripping paint, quick strokes, and authentic street artist technique and spontaneity</option><option value="Experimental wildstyle mixing organic curves with geometric shapes, rainbow gradients, and layered transparency effects">Experimental wildstyle mixing organic curves with geometric shapes, rainbow gradients, and layered transparency effects</option><option value="Fast throw-up technique using dripping paint effects, minimal colors, and spontaneous energetic brush strokes">Fast throw-up technique using dripping paint effects, minimal colors, and spontaneous energetic brush strokes</option><option value="Fat bubble letters with 3D perspective, soft shadows, and warm gradient color schemes on dark backgrounds">Fat bubble letters with 3D perspective, soft shadows, and warm gradient color schemes on dark backgrounds</option><option value="Futuristic cyber wildstyle with razor-sharp extensions, luminous edges, and holographic spray transitions">Futuristic cyber wildstyle with razor-sharp extensions, luminous edges, and holographic spray transitions</option><option value="Geometric blockbuster with angular letters, clean fills, and strategic use of complementary color combinations">Geometric blockbuster with angular letters, clean fills, and strategic use of complementary color combinations</option><option value="Glass-effect bubble lettering with translucent fills, soft reflections, and glossy premium depth">Glass-effect bubble lettering with translucent fills, soft reflections, and glossy premium depth</option><option value="Handstyle script graffiti with confident sweeping strokes, rhythmic motion, and upscale urban polish">Handstyle script graffiti with confident sweeping strokes, rhythmic motion, and upscale urban polish</option><option value="Industrial blockbuster letters with metallic finishes, angular construction, and bold color blocking techniques">Industrial blockbuster letters with metallic finishes, angular construction, and bold color blocking techniques</option><option value="Intricate wildstyle with character integration, arrow extensions, and complex layering of transparent spray paint colors">Intricate wildstyle with character integration, arrow extensions, and complex layering of transparent spray paint colors</option><option value="Luxury serif graffiti with sculpted letterforms, bold outlines, and fashion-campaign sophistication">Luxury serif graffiti with sculpted letterforms, bold outlines, and fashion-campaign sophistication</option><option value="Professional blockbuster with clean lines, solid color fills, and strategic shadow placement for architectural impact">Professional blockbuster with clean lines, solid color fills, and strategic shadow placement for architectural impact</option><option value="Puffy bubble letters with dimensional shading, soft color transitions, and decorative star elements throughout design">Puffy bubble letters with dimensional shading, soft color transitions, and decorative star elements throughout design</option><option value="Puffy bubble style with outlined characters, soft internal gradients, and playful multi-color spray applications">Puffy bubble style with outlined characters, soft internal gradients, and playful multi-color spray applications</option><option value="Quick throw-up featuring minimal colors, loose outlines, and authentic spontaneous spray paint application methods">Quick throw-up featuring minimal colors, loose outlines, and authentic spontaneous spray paint application methods</option><option value="Raw throw-up style with visible spray texture, minimal detail, and authentic street art urgency and energy">Raw throw-up style with visible spray texture, minimal detail, and authentic street art urgency and energy</option><option value="Rounded bubble letters with soft gradients, bubble outlines, and playful pastel color schemes on white backgrounds">Rounded bubble letters with soft gradients, bubble outlines, and playful pastel color schemes on white backgrounds</option><option value="Smooth bubble letters with chrome reflection effects, soft halos, and elegant color gradients in cool palettes">Smooth bubble letters with chrome reflection effects, soft halos, and elegant color gradients in cool palettes</option><option value="Sophisticated wildstyle merging calligraphy elements, intricate details, and professional color harmony with metallic spray">Sophisticated wildstyle merging calligraphy elements, intricate details, and professional color harmony with metallic spray</option><option value="Stencil-luxe graffiti with crisp cutout edges, layered overlays, and upscale street editorial finish">Stencil-luxe graffiti with crisp cutout edges, layered overlays, and upscale street editorial finish</option><option value="Street throw-up featuring quick outlines, rapid fill techniques, and authentic urban decay aesthetic with drips">Street throw-up featuring quick outlines, rapid fill techniques, and authentic urban decay aesthetic with drips</option><option value="Throw-up style with two-color outline and fill, quick energetic strokes, and bold metallic silver accents">Throw-up style with two-color outline and fill, quick energetic strokes, and bold metallic silver accents</option><option value="Wildstyle graffiti with interlocking letters, complex arrows, and dynamic flowing lines in vibrant neon colors">Wildstyle graffiti with interlocking letters, complex arrows, and dynamic flowing lines in vibrant neon colors</option></select>
+<button class="lock-btn" onclick="toggleLock('spray_paint_style')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🧱 Street Surface &amp; Decay</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Street Surface &amp; Decay</label>
+<div class="field-row">
+<select class="multi-pick-select" data-logic="standard" id="surface_texture" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6">
+<option value="">None</option><option value="Abandoned warehouse shutter with scratched paint, dented metal ridges, and gritty industrial character">Abandoned warehouse shutter with scratched paint, dented metal ridges, and gritty industrial character</option><option value="Aged red brick wall with mortar cracks, perfect for vibrant spray paint contrast and urban texture">Aged red brick wall with mortar cracks, perfect for vibrant spray paint contrast and urban texture</option><option value="Corrugated metal industrial surface with rust patches, ideal for metallic paint effects and reflective elements">Corrugated metal industrial surface with rust patches, ideal for metallic paint effects and reflective elements</option><option value="Cracked asphalt wall surface with multiple fracture patterns, adding dynamic texture to street art">Cracked asphalt wall surface with multiple fracture patterns, adding dynamic texture to street art</option><option value="Crumbling urban decay wall with exposed plaster, brick, and natural patina for authentic street aesthetic">Crumbling urban decay wall with exposed plaster, brick, and natural patina for authentic street aesthetic</option><option value="Dark slate stone wall with subtle mineral texture, giving graffiti a premium moody architectural backdrop">Dark slate stone wall with subtle mineral texture, giving graffiti a premium moody architectural backdrop</option><option value="Deteriorating painted drywall with water damage stains and mold patterns, authentic abandoned building aesthetic">Deteriorating painted drywall with water damage stains and mold patterns, authentic abandoned building aesthetic</option><option value="Deteriorating stucco wall with large chunks missing, revealing layers of history and urban abandonment">Deteriorating stucco wall with large chunks missing, revealing layers of history and urban abandonment</option><option value="Freshly painted white wall with slight chalky texture, ideal for vibrant contrasting color graffiti art">Freshly painted white wall with slight chalky texture, ideal for vibrant contrasting color graffiti art</option><option value="Glossy tiled surface with reflective properties, creating striking visual effects for modern graffiti designs">Glossy tiled surface with reflective properties, creating striking visual effects for modern graffiti designs</option><option value="Heavily graffitied wall with existing art underneath, layered palimpsest effect for complex visual composition">Heavily graffitied wall with existing art underneath, layered palimpsest effect for complex visual composition</option><option value="Heavily textured brick facade with deep mortar joints, creating shadow play for dimensional graffiti pieces">Heavily textured brick facade with deep mortar joints, creating shadow play for dimensional graffiti pieces</option><option value="Industrial concrete with embedded rebar visible in cracks, creating geometric patterns for street art integration">Industrial concrete with embedded rebar visible in cracks, creating geometric patterns for street art integration</option><option value="Industrial metal shipping container with dents and scratches, providing unique surface for bold tag designs">Industrial metal shipping container with dents and scratches, providing unique surface for bold tag designs</option><option value="Industrial steel beam surface with rust oxidation and factory markings, perfect for edgy urban aesthetic">Industrial steel beam surface with rust oxidation and factory markings, perfect for edgy urban aesthetic</option><option value="Mirror-polished stainless steel panel with brushed reflections for futuristic luxury graffiti presentation">Mirror-polished stainless steel panel with brushed reflections for futuristic luxury graffiti presentation</option><option value="Old subway tile wall with cracked grout lines and stained glaze for authentic transit tunnel energy">Old subway tile wall with cracked grout lines and stained glaze for authentic transit tunnel energy</option><option value="Paint-washed alley wall with layered roller marks and soft urban patina for lived-in realism">Paint-washed alley wall with layered roller marks and soft urban patina for lived-in realism</option><option value="Painted metal billboard frame with peeling layers revealing previous advertisements and artistic history">Painted metal billboard frame with peeling layers revealing previous advertisements and artistic history</option><option value="Polished black stone facade with reflective depth, ideal for dramatic high-contrast luxury lettering">Polished black stone facade with reflective depth, ideal for dramatic high-contrast luxury lettering</option><option value="Porous sandstone wall with natural erosion patterns, creating organic texture for integrated graffiti design">Porous sandstone wall with natural erosion patterns, creating organic texture for integrated graffiti design</option><option value="Pristine marble-effect wall with subtle veining, luxurious surface for sophisticated graffiti lettering designs">Pristine marble-effect wall with subtle veining, luxurious surface for sophisticated graffiti lettering designs</option><option value="Pristine white concrete wall offering clean canvas for bold geometric graffiti designs and color saturation">Pristine white concrete wall offering clean canvas for bold geometric graffiti designs and color saturation</option><option value="Raw concrete foundation wall with aggregate stones visible, industrial texture for bold graffiti designs">Raw concrete foundation wall with aggregate stones visible, industrial texture for bold graffiti designs</option><option value="Reclaimed plywood wall with layered posters, torn paper residue, and gritty DIY street texture">Reclaimed plywood wall with layered posters, torn paper residue, and gritty DIY street texture</option><option value="Rough concrete highway underpass with water stains and algae growth, authentic urban decay canvas">Rough concrete highway underpass with water stains and algae growth, authentic urban decay canvas</option><option value="Smooth aluminum composite panel with slight oxidation, modern surface for sleek contemporary graffiti styles">Smooth aluminum composite panel with slight oxidation, modern surface for sleek contemporary graffiti styles</option><option value="Smooth glass storefront window with light reflection, ideal for transparent and layered graffiti effects">Smooth glass storefront window with light reflection, ideal for transparent and layered graffiti effects</option><option value="Smooth granite stone surface with subtle veining, providing elegant backdrop for contemporary graffiti art">Smooth granite stone surface with subtle veining, providing elegant backdrop for contemporary graffiti art</option><option value="Smooth museum-style plaster wall with curated imperfections for refined gallery-meets-street presentation">Smooth museum-style plaster wall with curated imperfections for refined gallery-meets-street presentation</option><option value="Smooth polished concrete underpass with minimal imperfections, perfect for detailed lettering and precision artwork">Smooth polished concrete underpass with minimal imperfections, perfect for detailed lettering and precision artwork</option><option value="Textured vinyl siding with faded color and weathering, creating interesting surface variation for artwork">Textured vinyl siding with faded color and weathering, creating interesting surface variation for artwork</option><option value="Urban construction barrier with scuffed composite panels and taped seams for temporary-city rawness">Urban construction barrier with scuffed composite panels and taped seams for temporary-city rawness</option><option value="Vintage brick wall with uneven surface and century-old mortar joints, perfect for character and depth">Vintage brick wall with uneven surface and century-old mortar joints, perfect for character and depth</option><option value="Vintage painted brick with multiple color layers and historical wear, perfect for nostalgic street art">Vintage painted brick with multiple color layers and historical wear, perfect for nostalgic street art</option><option value="Weathered clay brick with natural color variation and surface irregularities, authentic rustic urban canvas">Weathered clay brick with natural color variation and surface irregularities, authentic rustic urban canvas</option><option value="Weathered concrete surface with peeling paint layers, exposing decades of street art history underneath">Weathered concrete surface with peeling paint layers, exposing decades of street art history underneath</option><option value="Weathered plaster wall with large missing sections and exposed lath, showing authentic decay and character">Weathered plaster wall with large missing sections and exposed lath, showing authentic decay and character</option><option value="Weathered roll-up garage door with ribbed metal texture, chipped paint, and authentic alley attitude">Weathered roll-up garage door with ribbed metal texture, chipped paint, and authentic alley attitude</option><option value="Weathered wooden fence with splintered surface and natural grain, adding organic texture to spray paint">Weathered wooden fence with splintered surface and natural grain, adding organic texture to spray paint</option></select>
+<button class="lock-btn" onclick="toggleLock('surface_texture')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>💧 Paint Effects &amp; Dynamics</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Paint Effects &amp; Dynamics</label>
+<div class="field-row">
+<select class="multi-pick-select" data-logic="standard" id="paint_effects" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6">
+<option value="">None</option><option value="Airbrush fade transitions with ultra-smooth color feathering and polished luxury finish across letter surfaces">Airbrush fade transitions with ultra-smooth color feathering and polished luxury finish across letter surfaces</option><option value="Chipped paint edges with sharp fracture lines and realistic surface layer separation details">Chipped paint edges with sharp fracture lines and realistic surface layer separation details</option><option value="Chrome reflection streaks creating mirror-like shine bands and premium metallic movement across the design">Chrome reflection streaks creating mirror-like shine bands and premium metallic movement across the design</option><option value="Corrosion damage showing chemical weathering with discoloration stains and surface degradation patterns">Corrosion damage showing chemical weathering with discoloration stains and surface degradation patterns</option><option value="Crystal sparkle accents scattered across highlights for glam street-art shimmer without losing raw edge">Crystal sparkle accents scattered across highlights for glam street-art shimmer without losing raw edge</option><option value="Drip acceleration effect simulating fast-moving paint flow with elongated streaks and speed-based distortion">Drip acceleration effect simulating fast-moving paint flow with elongated streaks and speed-based distortion</option><option value="Drip intensity with heavy downward paint flow creating realistic gravity-affected streaks and runs">Drip intensity with heavy downward paint flow creating realistic gravity-affected streaks and runs</option><option value="Drip interruption with paint flow breaks creating segmented streaks and natural pause effects">Drip interruption with paint flow breaks creating segmented streaks and natural pause effects</option><option value="Drip pooling effect at bottom edges creating realistic paint accumulation and surface saturation">Drip pooling effect at bottom edges creating realistic paint accumulation and surface saturation</option><option value="Drip stalactite formation creating hanging paint formations and gravity-defying dried paint structures">Drip stalactite formation creating hanging paint formations and gravity-defying dried paint structures</option><option value="Drip thickness variation creating variable-width paint streams from thick heavy flows to thin trails">Drip thickness variation creating variable-width paint streams from thick heavy flows to thin trails</option><option value="Drip viscosity control affecting paint flow speed and consistency creating varied stream characteristics">Drip viscosity control affecting paint flow speed and consistency creating varied stream characteristics</option><option value="Dusty overspray haze softening outer edges with atmospheric diffusion and authentic aerosol drift">Dusty overspray haze softening outer edges with atmospheric diffusion and authentic aerosol drift</option><option value="Gloss coat finish adding wet-look shine, reflective depth, and premium poster-quality polish">Gloss coat finish adding wet-look shine, reflective depth, and premium poster-quality polish</option><option value="Graffiti aging with faded colors and UV damage creating weathered vintage appearance">Graffiti aging with faded colors and UV damage creating weathered vintage appearance</option><option value="Ink bleed fusion where paint merges into soft staining around edges for mixed-media urban texture">Ink bleed fusion where paint merges into soft staining around edges for mixed-media urban texture</option><option value="Layered paint translucency revealing subtle undercolors through semi-opaque spray zones and blended shadows">Layered paint translucency revealing subtle undercolors through semi-opaque spray zones and blended shadows</option><option value="Micro-splatter mist creating fine aerosol freckles around contours for high-detail authentic spray realism">Micro-splatter mist creating fine aerosol freckles around contours for high-detail authentic spray realism</option><option value="Overspray color shift showing pigment separation and color fringing in atmospheric spray zones">Overspray color shift showing pigment separation and color fringing in atmospheric spray zones</option><option value="Overspray detail with fine mist effect creating soft halos and atmospheric color bleeding around edges">Overspray detail with fine mist effect creating soft halos and atmospheric color bleeding around edges</option><option value="Overspray feathering creating soft diffused edges with gradual transparency falloff and blended boundaries">Overspray feathering creating soft diffused edges with gradual transparency falloff and blended boundaries</option><option value="Overspray gradient fade controlling smooth transitions from solid color to transparent atmospheric mist">Overspray gradient fade controlling smooth transitions from solid color to transparent atmospheric mist</option><option value="Overspray halo intensity controlling atmospheric diffusion and soft-focus color spread beyond main design edges">Overspray halo intensity controlling atmospheric diffusion and soft-focus color spread beyond main design edges</option><option value="Overspray iridescence adding light-reactive color shifts and metallic sheen in spray mist areas">Overspray iridescence adding light-reactive color shifts and metallic sheen in spray mist areas</option><option value="Overspray particle size distribution ranging from fine mist to visible droplet spray patterns">Overspray particle size distribution ranging from fine mist to visible droplet spray patterns</option><option value="Paint chip weathering showing aged surface deterioration with realistic peeling and flaking texture layers">Paint chip weathering showing aged surface deterioration with realistic peeling and flaking texture layers</option><option value="Paint cracking with fine fracture networks and realistic drying stress patterns on surface">Paint cracking with fine fracture networks and realistic drying stress patterns on surface</option><option value="Paint texture roughness with visible brush stroke marks and uneven surface application characteristics">Paint texture roughness with visible brush stroke marks and uneven surface application characteristics</option><option value="Reflective chrome hotspots catching simulated light with glossy metallic flash and dimensional emphasis">Reflective chrome hotspots catching simulated light with glossy metallic flash and dimensional emphasis</option><option value="Rust bloom effect with orange-brown oxidation stains spreading from underlying metal exposure">Rust bloom effect with orange-brown oxidation stains spreading from underlying metal exposure</option><option value="Smoke-kissed texture adding faint soot haze and gritty atmospheric residue around the painted composition">Smoke-kissed texture adding faint soot haze and gritty atmospheric residue around the painted composition</option><option value="Splatter asymmetry creating directional bias and wind-affected spray pattern irregularities">Splatter asymmetry creating directional bias and wind-affected spray pattern irregularities</option><option value="Splatter concentration focused on impact zones with dense particle clustering and organic spray patterns">Splatter concentration focused on impact zones with dense particle clustering and organic spray patterns</option><option value="Splatter density gradient transitioning from heavy concentrated spray to light dispersed particles">Splatter density gradient transitioning from heavy concentrated spray to light dispersed particles</option><option value="Splatter dynamics using high-pressure spray technique with varied particle sizes and directional spray patterns">Splatter dynamics using high-pressure spray technique with varied particle sizes and directional spray patterns</option><option value="Splatter impact craters showing paint impact deformation and surface disruption effects">Splatter impact craters showing paint impact deformation and surface disruption effects</option><option value="Splatter randomization producing organic unpredictable spray patterns avoiding repetitive mechanical appearance">Splatter randomization producing organic unpredictable spray patterns avoiding repetitive mechanical appearance</option><option value="Splatter velocity control determining particle speed and impact force creating varied splatter spread">Splatter velocity control determining particle speed and impact force creating varied splatter spread</option><option value="Weathering patina creating aged copper and rust-like oxidation effects on painted surface areas">Weathering patina creating aged copper and rust-like oxidation effects on painted surface areas</option><option value="Wet paint blending with color mixing zones where overlapping spray creates natural color transitions">Wet paint blending with color mixing zones where overlapping spray creates natural color transitions</option></select>
+<button class="lock-btn" onclick="toggleLock('paint_effects')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🎤 Street Art Era &amp; Culture</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Street Art Era &amp; Culture</label>
+<div class="field-row">
+<select class="multi-pick-select" data-logic="standard" id="street_art_era" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6">
+<option value="">None</option><option value="2000s advanced wildstyle featuring intertwined letters, depth perception, and metallic finishes">2000s advanced wildstyle featuring intertwined letters, depth perception, and metallic finishes</option><option value="2000s advanced wildstyle with intertwined characters, shadow effects, and iridescent color shifts">2000s advanced wildstyle with intertwined characters, shadow effects, and iridescent color shifts</option><option value="2000s complex wildstyle with overlapping characters, arrow accents, and chrome silver effects">2000s complex wildstyle with overlapping characters, arrow accents, and chrome silver effects</option><option value="2000s complex wildstyle with overlapping letters, arrow effects, and chrome gradient fills">2000s complex wildstyle with overlapping letters, arrow effects, and chrome gradient fills</option><option value="2000s wildstyle graffiti with intricate interlocking letters, 3D depth effects, and metallic silver accents">2000s wildstyle graffiti with intricate interlocking letters, 3D depth effects, and metallic silver accents</option><option value="2000s wildstyle masterpiece with extreme letter distortion, 3D effects, and metallic paint simulation">2000s wildstyle masterpiece with extreme letter distortion, 3D effects, and metallic paint simulation</option><option value="2000s wildstyle masterpiece with extreme letter manipulation, shadow effects, and chrome accents">2000s wildstyle masterpiece with extreme letter manipulation, shadow effects, and chrome accents</option><option value="80s classic graffiti with rounded bubble caps, basic fill patterns, and primary color scheme">80s classic graffiti with rounded bubble caps, basic fill patterns, and primary color scheme</option><option value="80s classic graffiti with rounded bubble style, simple colors, and basic 3D effects">80s classic graffiti with rounded bubble style, simple colors, and basic 3D effects</option><option value="80s old-school graffiti with bold bubble letters, chrome effects, and neon outlines on concrete wall">80s old-school graffiti with bold bubble letters, chrome effects, and neon outlines on concrete wall</option><option value="80s retro bombing with puffy letters, basic gradient fills, and classic spray paint aesthetic">80s retro bombing with puffy letters, basic gradient fills, and classic spray paint aesthetic</option><option value="80s retro graffiti bombing style with thick outlines, basic shading, and classic spray paint drips">80s retro graffiti bombing style with thick outlines, basic shading, and classic spray paint drips</option><option value="80s style piece with fat caps, bright neon colors, simple outlines, and spray drips">80s style piece with fat caps, bright neon colors, simple outlines, and spray drips</option><option value="80s style piece with puffy letters, simple arrow caps, and bright neon color combinations">80s style piece with puffy letters, simple arrow caps, and bright neon color combinations</option><option value="80s throwback with simple block letters, thick outlines, basic shadows, and neon highlights">80s throwback with simple block letters, thick outlines, basic shadows, and neon highlights</option><option value="90s golden age hip-hop graffiti with wildstyle letters, authentic texture, and rich color depth">90s golden age hip-hop graffiti with wildstyle letters, authentic texture, and rich color depth</option><option value="90s golden age piece with intricate letter connections, spray texture, and vibrant multi-color layers">90s golden age piece with intricate letter connections, spray texture, and vibrant multi-color layers</option><option value="90s golden era hip-hop tag with fat caps, layered colors, and authentic urban decay background">90s golden era hip-hop tag with fat caps, layered colors, and authentic urban decay background</option><option value="90s golden era piece with intricate letter work, color blocking, and urban wall texture">90s golden era piece with intricate letter work, color blocking, and urban wall texture</option><option value="90s hip-hop era graffiti featuring fat letters, wildstyle complexity, and authentic spray paint feel">90s hip-hop era graffiti featuring fat letters, wildstyle complexity, and authentic spray paint feel</option><option value="90s hip-hop golden age piece featuring wildstyle lettering, spray paint texture, and vibrant color blocking">90s hip-hop golden age piece featuring wildstyle lettering, spray paint texture, and vibrant color blocking</option><option value="90s hip-hop graffiti featuring block letters, wildstyle arrows, and rich jewel-tone paint effects">90s hip-hop graffiti featuring block letters, wildstyle arrows, and rich jewel-tone paint effects</option><option value="90s hip-hop graffiti featuring complex letter arrangements, spray texture, and vibrant hues">90s hip-hop graffiti featuring complex letter arrangements, spray texture, and vibrant hues</option><option value="Afrofuturist street mural influence with cosmic symbolism, polished gradients, and culture-forward luxury energy">Afrofuturist street mural influence with cosmic symbolism, polished gradients, and culture-forward luxury energy</option><option value="Bronx train-yard legacy style with classic burner energy, layered colors, and authentic old-school momentum">Bronx train-yard legacy style with classic burner energy, layered colors, and authentic old-school momentum</option><option value="Contemporary street art with clean lines, minimalist design, and sophisticated color coordination">Contemporary street art with clean lines, minimalist design, and sophisticated color coordination</option><option value="Contemporary street art with minimalist approach, geometric elements, and refined color palette">Contemporary street art with minimalist approach, geometric elements, and refined color palette</option><option value="Contemporary street art with stencil technique, political messaging, and muted earth tone colors">Contemporary street art with stencil technique, political messaging, and muted earth tone colors</option><option value="Fashion-week street takeover aesthetic with editorial polish, premium branding energy, and curated wall impact">Fashion-week street takeover aesthetic with editorial polish, premium branding energy, and curated wall impact</option><option value="Gallery-meets-alley contemporary art scene blending fine-art restraint with authentic graffiti character">Gallery-meets-alley contemporary art scene blending fine-art restraint with authentic graffiti character</option><option value="Global mural festival style featuring large-scale public-art confidence, clean execution, and vibrant storytelling">Global mural festival style featuring large-scale public-art confidence, clean execution, and vibrant storytelling</option><option value="Luxury street campaign aesthetic inspired by fashion advertising, upscale urban environments, and brand-forward visuals">Luxury street campaign aesthetic inspired by fashion advertising, upscale urban environments, and brand-forward visuals</option><option value="Modern underground aesthetic with abstract forms, paint splatters, and bold monochromatic colors">Modern underground aesthetic with abstract forms, paint splatters, and bold monochromatic colors</option><option value="Modern underground aesthetic with abstract letterforms, spray paint splatters, and monochromatic scheme">Modern underground aesthetic with abstract letterforms, spray paint splatters, and monochromatic scheme</option><option value="Modern underground street art with minimalist line work, geometric shapes, and contemporary color palette">Modern underground street art with minimalist line work, geometric shapes, and contemporary color palette</option><option value="Modern underground style with organic shapes, drip effects, and contemporary artistic expression">Modern underground style with organic shapes, drip effects, and contemporary artistic expression</option><option value="Post-graffiti design movement with abstract structure, controlled chaos, and refined metropolitan sophistication">Post-graffiti design movement with abstract structure, controlled chaos, and refined metropolitan sophistication</option><option value="Social-media-era street art built for viral visuals, polished color stories, and scroll-stopping impact">Social-media-era street art built for viral visuals, polished color stories, and scroll-stopping impact</option><option value="Transit tunnel bombing culture with fast layered tags, commuter grit, and underground city energy">Transit tunnel bombing culture with fast layered tags, commuter grit, and underground city energy</option><option value="Y2K street luxe aesthetic with chrome finishes, bold candy colors, and turn-of-the-millennium swagger">Y2K street luxe aesthetic with chrome finishes, bold candy colors, and turn-of-the-millennium swagger</option></select>
+<button class="lock-btn" onclick="toggleLock('street_art_era')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>💡 Urban Lighting &amp; Atmosphere</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Urban Lighting &amp; Atmosphere</label>
+<div class="field-row">
+<select class="multi-pick-select" data-logic="lighting" id="lighting_mood" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6">
+<option value="">None</option><option value="Blue-hour city glow with soft ambient skylight and subtle storefront reflections across the graffiti surface">Blue-hour city glow with soft ambient skylight and subtle storefront reflections across the graffiti surface</option><option value="Cloudy daylight with diffused urban softness, balanced contrast, and highly readable color transitions">Cloudy daylight with diffused urban softness, balanced contrast, and highly readable color transitions</option><option value="Daylight graffiti art with bold black outlines, colorful fill, gritty weathered wall texture">Daylight graffiti art with bold black outlines, colorful fill, gritty weathered wall texture</option><option value="Daylight graffiti text with bold colors, rough texture, authentic street art style">Daylight graffiti text with bold colors, rough texture, authentic street art style</option><option value="Daylight graffiti with bold outlines, colorful fill, authentic street culture aesthetic">Daylight graffiti with bold outlines, colorful fill, authentic street culture aesthetic</option><option value="Daylight graffiti with bold spray paint colors, rough weathered wall, authentic style">Daylight graffiti with bold spray paint colors, rough weathered wall, authentic style</option><option value="Daytime graffiti with natural sunlight, vibrant multi-color spray paint, concrete wall backdrop">Daytime graffiti with natural sunlight, vibrant multi-color spray paint, concrete wall backdrop</option><option value="Daytime street art with natural sunlight, colorful spray paint, weathered brick wall">Daytime street art with natural sunlight, colorful spray paint, weathered brick wall</option><option value="Daytime street art with natural sunlight, vibrant colors, textured concrete surface">Daytime street art with natural sunlight, vibrant colors, textured concrete surface</option><option value="Electric neon blue graffiti letters with dripping paint, dark night sky background">Electric neon blue graffiti letters with dripping paint, dark night sky background</option><option value="Electric neon graffiti text with glow effect, dark night sky, rebellion atmosphere">Electric neon graffiti text with glow effect, dark night sky, rebellion atmosphere</option><option value="Flash-lit street editorial look with crisp highlights, controlled shadows, and fashion-shoot intensity">Flash-lit street editorial look with crisp highlights, controlled shadows, and fashion-shoot intensity</option><option value="Glowing neon green graffiti letters with atmospheric smoke, nighttime rebellion vibe">Glowing neon green graffiti letters with atmospheric smoke, nighttime rebellion vibe</option><option value="Glowing neon orange graffiti text on dark metal surface, nighttime street culture vibe">Glowing neon orange graffiti text on dark metal surface, nighttime street culture vibe</option><option value="Glowing neon yellow graffiti art with nighttime city lights in blurred background">Glowing neon yellow graffiti art with nighttime city lights in blurred background</option><option value="Golden-hour light washing across the wall with warm highlights and dimensional urban richness">Golden-hour light washing across the wall with warm highlights and dimensional urban richness</option><option value="Harsh street lighting on white graffiti text, dramatic shadows, industrial grit atmosphere">Harsh street lighting on white graffiti text, dramatic shadows, industrial grit atmosphere</option><option value="LED storefront spill casting colorful side light and polished commercial atmosphere onto the artwork">LED storefront spill casting colorful side light and polished commercial atmosphere onto the artwork</option><option value="Low-sun alley lighting with elongated shadows and rich warmth enhancing texture and paint depth">Low-sun alley lighting with elongated shadows and rich warmth enhancing texture and paint depth</option><option value="Moody tunnel lighting with soft falloff, cinematic darkness, and focused illumination on the lettering">Moody tunnel lighting with soft falloff, cinematic darkness, and focused illumination on the lettering</option><option value="Neon cyan and magenta graffiti with reflection on wet urban street at night">Neon cyan and magenta graffiti with reflection on wet urban street at night</option><option value="Neon cyan graffiti art with reflection on wet pavement, nighttime urban setting">Neon cyan graffiti art with reflection on wet pavement, nighttime urban setting</option><option value="Neon multi-color graffiti text, atmospheric haze, urban nighttime rebellion mood">Neon multi-color graffiti text, atmospheric haze, urban nighttime rebellion mood</option><option value="Neon pink and purple graffiti with cinematic lighting, nighttime city mood">Neon pink and purple graffiti with cinematic lighting, nighttime city mood</option><option value="Neon pink graffiti text with atmospheric fog, nighttime rebellion mood, cinematic lighting">Neon pink graffiti text with atmospheric fog, nighttime rebellion mood, cinematic lighting</option><option value="Neon purple and cyan graffiti text reflecting on wet pavement after rain, moody atmosphere">Neon purple and cyan graffiti text reflecting on wet pavement after rain, moody atmosphere</option><option value="Neon red and blue graffiti text reflecting in puddles, moody nighttime atmosphere">Neon red and blue graffiti text reflecting in puddles, moody nighttime atmosphere</option><option value="Neon-lit graffiti text glowing electric blue and pink against dark brick wall at night">Neon-lit graffiti text glowing electric blue and pink against dark brick wall at night</option><option value="Overcast mural lighting with soft even exposure, rich surface detail, and premium campaign clarity">Overcast mural lighting with soft even exposure, rich surface detail, and premium campaign clarity</option><option value="Overhead street lighting on graffiti art, sharp contrasts, gritty urban industrial feel">Overhead street lighting on graffiti art, sharp contrasts, gritty urban industrial feel</option><option value="Rainy-night reflections with glossy pavement bounce light and cinematic saturation around the graffiti">Rainy-night reflections with glossy pavement bounce light and cinematic saturation around the graffiti</option><option value="Street art lettering with harsh overhead lighting creating sharp shadows, industrial urban setting">Street art lettering with harsh overhead lighting creating sharp shadows, industrial urban setting</option><option value="Street lamp casting dramatic shadows across white spray-painted letters on urban concrete surface">Street lamp casting dramatic shadows across white spray-painted letters on urban concrete surface</option><option value="Street lamp illuminated graffiti art with long shadows, gritty urban decay aesthetic">Street lamp illuminated graffiti art with long shadows, gritty urban decay aesthetic</option><option value="Street lamp illuminated graffiti with dramatic shadows, urban decay aesthetic">Street lamp illuminated graffiti with dramatic shadows, urban decay aesthetic</option><option value="Street lamp shadows creating geometric patterns across graffiti letters on concrete">Street lamp shadows creating geometric patterns across graffiti letters on concrete</option><option value="Street lighting casting shadows on colorful graffiti letters, gritty industrial backdrop">Street lighting casting shadows on colorful graffiti letters, gritty industrial backdrop</option><option value="Sunset city glow blending warm orange highlights with cool shadow tones for dramatic wall presence">Sunset city glow blending warm orange highlights with cool shadow tones for dramatic wall presence</option><option value="Vibrant graffiti text with neon green glow, dripping paint effect, nighttime city rebellion aesthetic">Vibrant graffiti text with neon green glow, dripping paint effect, nighttime city rebellion aesthetic</option><option value="Vibrant neon graffiti with electric glow effect, dark urban background, nighttime setting">Vibrant neon graffiti with electric glow effect, dark urban background, nighttime setting</option></select>
+<button class="lock-btn" onclick="toggleLock('lighting_mood')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>✍️ Tag Artist Signature Style</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Tag Artist Signature Style</label>
+<div class="field-row">
+<select class="multi-pick-select" data-logic="standard" id="artist_signature" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6">
+<option value="">None</option><option value="Architectural handstyle with sharp corners, measured flow, and premium logo-like authority">Architectural handstyle with sharp corners, measured flow, and premium logo-like authority</option><option value="Calligraphic tag style with graceful loops, balanced tension, and elegant upscale motion">Calligraphic tag style with graceful loops, balanced tension, and elegant upscale motion</option><option value="Crew graffiti style with geometric shapes, clean fills, and coordinated pastel color schemes">Crew graffiti style with geometric shapes, clean fills, and coordinated pastel color schemes</option><option value="Crew-style graffiti with geometric letter forms, clean fills, and coordinated color harmony">Crew-style graffiti with geometric letter forms, clean fills, and coordinated color harmony</option><option value="Crew-style piece featuring interconnected letters, arrow caps, and layered transparent paint effects">Crew-style piece featuring interconnected letters, arrow caps, and layered transparent paint effects</option><option value="Crew-style piece with geometric shapes, clean lines, and coordinated pastel color blocking">Crew-style piece with geometric shapes, clean lines, and coordinated pastel color blocking</option><option value="Crown-tag signature with regal flourishes, sharp finishing strokes, and luxury-street confidence">Crown-tag signature with regal flourishes, sharp finishing strokes, and luxury-street confidence</option><option value="Fashion-house graffiti signature with sleek letter rhythm, polished restraint, and premium branding attitude">Fashion-house graffiti signature with sleek letter rhythm, polished restraint, and premium branding attitude</option><option value="Gem-cut lettering style with faceted edges, sparkle cues, and glamorous urban sharpness">Gem-cut lettering style with faceted edges, sparkle cues, and glamorous urban sharpness</option><option value="Minimal luxe tag with refined line economy, controlled spacing, and sophisticated wall presence">Minimal luxe tag with refined line economy, controlled spacing, and sophisticated wall presence</option><option value="Monogram-driven signature with intertwined initials, symmetrical flow, and designer-label energy">Monogram-driven signature with intertwined initials, symmetrical flow, and designer-label energy</option><option value="Professional crew-style piece with clean lines, intricate wildstyle letters, and coordinated color blocking">Professional crew-style piece with clean lines, intricate wildstyle letters, and coordinated color blocking</option><option value="Professional graffiti piece with interlocking wildstyle, 3D shadows, and chrome silver accents">Professional graffiti piece with interlocking wildstyle, 3D shadows, and chrome silver accents</option><option value="Professional graffiti writer signature with interlocking letters, 3D depth effects, and chrome finish">Professional graffiti writer signature with interlocking letters, 3D depth effects, and chrome finish</option><option value="Professional vandal tag with interlocking letters, arrow caps, and metallic gradient effects">Professional vandal tag with interlocking letters, arrow caps, and metallic gradient effects</option><option value="Professional wildstyle graffiti featuring intricate connections, 3D depth, and chrome finish">Professional wildstyle graffiti featuring intricate connections, 3D depth, and chrome finish</option><option value="Professional wildstyle graffiti with intricate letter connections, arrows, and metallic paint effects">Professional wildstyle graffiti with intricate letter connections, arrows, and metallic paint effects</option><option value="Raw graffiti aesthetic with aggressive drips, jagged edges, and high-contrast color combinations">Raw graffiti aesthetic with aggressive drips, jagged edges, and high-contrast color combinations</option><option value="Raw street art tag with paint drips, jagged angles, and vibrant neon highlights">Raw street art tag with paint drips, jagged angles, and vibrant neon highlights</option><option value="Raw tag art with dripping paint, jagged edges, and high-contrast black and neon colors">Raw tag art with dripping paint, jagged edges, and high-contrast black and neon colors</option><option value="Raw underground graffiti tag with aggressive spray paint drips, bold lettering, and chaotic energy">Raw underground graffiti tag with aggressive spray paint drips, bold lettering, and chaotic energy</option><option value="Raw vandal aesthetic with blocky letters, thick paint drips, and high-energy spray patterns">Raw vandal aesthetic with blocky letters, thick paint drips, and high-energy spray patterns</option><option value="Sharp italic handstyle with speed-driven motion, clean cuts, and confident metropolitan attitude">Sharp italic handstyle with speed-driven motion, clean cuts, and confident metropolitan attitude</option><option value="Signature artist tag with flowing script letters, ornamental flourishes, and gradient color transitions">Signature artist tag with flowing script letters, ornamental flourishes, and gradient color transitions</option><option value="Signature graffiti with flowing letters, ornamental elements, and smooth color transitions">Signature graffiti with flowing letters, ornamental elements, and smooth color transitions</option><option value="Signature tag technique featuring elongated letters with sharp angles and metallic silver highlights">Signature tag technique featuring elongated letters with sharp angles and metallic silver highlights</option><option value="Signature tag technique with elongated letters, sharp points, and explosive paint splatters">Signature tag technique with elongated letters, sharp points, and explosive paint splatters</option><option value="Signature vandal tag with elongated script, sharp serifs, and explosive color gradients">Signature vandal tag with elongated script, sharp serifs, and explosive color gradients</option><option value="Silk-script signature with smooth flowing rhythm, elegant terminals, and editorial polish">Silk-script signature with smooth flowing rhythm, elegant terminals, and editorial polish</option><option value="Street art tag with bubble letters, thick black outlines, and vibrant neon color bursts">Street art tag with bubble letters, thick black outlines, and vibrant neon color bursts</option><option value="Street art vandal aesthetic with bubble letters, thick outlines, and explosive paint splatter effects">Street art vandal aesthetic with bubble letters, thick outlines, and explosive paint splatter effects</option><option value="Street bombing aesthetic with bubble letters, bold outlines, and weathered wall texture">Street bombing aesthetic with bubble letters, bold outlines, and weathered wall texture</option><option value="Street bombing piece with bubble letters, thick outlines, and layered transparent paint">Street bombing piece with bubble letters, thick outlines, and layered transparent paint</option><option value="Underground bombing style featuring overlapping tags, stencil work, and weathered surface effects">Underground bombing style featuring overlapping tags, stencil work, and weathered surface effects</option><option value="Underground bombing style with overlapping tags, stencil elements, and gritty concrete texture backdrop">Underground bombing style with overlapping tags, stencil elements, and gritty concrete texture backdrop</option><option value="Underground bombing style with overlapping tags, stencil elements, and gritty texture backdrop">Underground bombing style with overlapping tags, stencil elements, and gritty texture backdrop</option><option value="Underground tag style featuring compressed script, sharp serifs, and explosive color gradients">Underground tag style featuring compressed script, sharp serifs, and explosive color gradients</option><option value="Underground tag technique featuring compressed letters, sharp angles, and dripping paint trails">Underground tag technique featuring compressed letters, sharp angles, and dripping paint trails</option><option value="Vandal aesthetic with blocky letters, thick outlines, and high-energy spray paint effects">Vandal aesthetic with blocky letters, thick outlines, and high-energy spray paint effects</option><option value="Velvet-drip tag with rich curves, tasteful drips, and glamorous underground personality">Velvet-drip tag with rich curves, tasteful drips, and glamorous underground personality</option></select>
+<button class="lock-btn" onclick="toggleLock('artist_signature')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🌈 Color &amp; Blend Technique</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Color &amp; Blend Technique</label>
+<div class="field-row">
+<select class="multi-pick-select" data-logic="standard" id="color_blend" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6">
+<option value="">None</option><option value="Black and gold luxury blend with reflective warmth, deep contrast, and high-end editorial richness">Black and gold luxury blend with reflective warmth, deep contrast, and high-end editorial richness</option><option value="Bold primary colors red, blue, and yellow with white separation lines and stark contrast">Bold primary colors red, blue, and yellow with white separation lines and stark contrast</option><option value="Champagne and ivory gradient with soft luminosity and polished boutique-level elegance">Champagne and ivory gradient with soft luminosity and polished boutique-level elegance</option><option value="Classic fade pattern transitioning from deep purple at top to light lavender at bottom">Classic fade pattern transitioning from deep purple at top to light lavender at bottom</option><option value="Cool gray monochrome with white highlights creating three-dimensional depth and volume">Cool gray monochrome with white highlights creating three-dimensional depth and volume</option><option value="Cool monochrome using only shades of blue from navy to sky blue with gradient transitions">Cool monochrome using only shades of blue from navy to sky blue with gradient transitions</option><option value="Copper and blush metallic blend with warm reflective highlights and feminine glam depth">Copper and blush metallic blend with warm reflective highlights and feminine glam depth</option><option value="Dark teal base color with bright lime green highlights and orange accent strokes">Dark teal base color with bright lime green highlights and orange accent strokes</option><option value="Deep emerald and gold fusion with jewel-tone richness, metallic shimmer, and regal impact">Deep emerald and gold fusion with jewel-tone richness, metallic shimmer, and regal impact</option><option value="Duotone style using only black and white with dramatic contrast and bold line work">Duotone style using only black and white with dramatic contrast and bold line work</option><option value="Earth tone palette combining terracotta, olive green, and chocolate brown with matte finish">Earth tone palette combining terracotta, olive green, and chocolate brown with matte finish</option><option value="High-contrast graffiti with bold red letters outlined in white with metallic silver accents">High-contrast graffiti with bold red letters outlined in white with metallic silver accents</option><option value="High-contrast monochrome black with white highlights and metallic silver accent details">High-contrast monochrome black with white highlights and metallic silver accent details</option><option value="High-saturation multi-color blend with sharp color blocking and clean geometric transitions">High-saturation multi-color blend with sharp color blocking and clean geometric transitions</option><option value="Holographic pastel blend shifting between lilac, aqua, and pink with futuristic iridescent glow">Holographic pastel blend shifting between lilac, aqua, and pink with futuristic iridescent glow</option><option value="Iridescent color shift effect blending purple, green, and blue with holographic appearance">Iridescent color shift effect blending purple, green, and blue with holographic appearance</option><option value="Metallic gold and bronze blend with reflective highlights and subtle shadow layering technique">Metallic gold and bronze blend with reflective highlights and subtle shadow layering technique</option><option value="Midnight blue and royal blue gradient with luminous depth and premium tonal layering">Midnight blue and royal blue gradient with luminous depth and premium tonal layering</option><option value="Mocha, cream, and caramel blend with soft transitions and luxe neutral sophistication">Mocha, cream, and caramel blend with soft transitions and luxe neutral sophistication</option><option value="Monochrome black tag with sharp white outlines and subtle gray shadow effects for depth">Monochrome black tag with sharp white outlines and subtle gray shadow effects for depth</option><option value="Monochrome grayscale tag with intricate cross-hatching and dotwork texture throughout design">Monochrome grayscale tag with intricate cross-hatching and dotwork texture throughout design</option><option value="Monochrome silver and gray with metallic sheen and dimensional shadow layering technique">Monochrome silver and gray with metallic sheen and dimensional shadow layering technique</option><option value="Monochrome white on black with intricate detail work and fine line stippling technique">Monochrome white on black with intricate detail work and fine line stippling technique</option><option value="Muted pastel blend of dusty rose, sage green, and soft blue with gentle gradients">Muted pastel blend of dusty rose, sage green, and soft blue with gentle gradients</option><option value="Neon color palette combining bright purple, cyan, and hot pink with glowing edges">Neon color palette combining bright purple, cyan, and hot pink with glowing edges</option><option value="Neon green letters with electric blue shadow and pink highlight accents on dark background">Neon green letters with electric blue shadow and pink highlight accents on dark background</option><option value="Neon highlight technique with bright cyan letters on dark navy background with glow effect">Neon highlight technique with bright cyan letters on dark navy background with glow effect</option><option value="Neon pink and purple gradient with glowing outline effect and subtle sparkle highlights">Neon pink and purple gradient with glowing outline effect and subtle sparkle highlights</option><option value="Rainbow spectrum fade pattern flowing horizontally across all letters with smooth color transitions">Rainbow spectrum fade pattern flowing horizontally across all letters with smooth color transitions</option><option value="Royal blue and gold blend with polished metallic highlights and bold signature brand energy">Royal blue and gold blend with polished metallic highlights and bold signature brand energy</option><option value="Ruby and champagne contrast with glossy richness and upscale celebratory sparkle">Ruby and champagne contrast with glossy richness and upscale celebratory sparkle</option><option value="Silver chrome and ice blue blend with cool reflective sheen and futuristic clean finish">Silver chrome and ice blue blend with cool reflective sheen and futuristic clean finish</option><option value="Soft pastel gradient blend combining mint green, peachy pink, and cream with feathered edges">Soft pastel gradient blend combining mint green, peachy pink, and cream with feathered edges</option><option value="Soft watercolor blend using coral, peach, and cream with diffused feathered edges throughout">Soft watercolor blend using coral, peach, and cream with diffused feathered edges throughout</option><option value="Sunset gradient fade from deep orange through red to purple with atmospheric blur">Sunset gradient fade from deep orange through red to purple with atmospheric blur</option><option value="Vibrant lime green base with hot pink outline and neon yellow inner glow effect">Vibrant lime green base with hot pink outline and neon yellow inner glow effect</option><option value="Vibrant multi-layer blend using electric blue, hot pink, and neon yellow with smooth transitions">Vibrant multi-layer blend using electric blue, hot pink, and neon yellow with smooth transitions</option><option value="Vibrant tri-color blend of magenta, cyan, and yellow with overlapping transparency effects">Vibrant tri-color blend of magenta, cyan, and yellow with overlapping transparency effects</option><option value="Warm color palette blending burnt orange, deep red, and golden yellow with soft edges">Warm color palette blending burnt orange, deep red, and golden yellow with soft edges</option><option value="Warm gradient fade from crimson red through orange to golden yellow with smooth transitions">Warm gradient fade from crimson red through orange to golden yellow with smooth transitions</option></select>
+<button class="lock-btn" onclick="toggleLock('color_blend')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>📍 Scene Location</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Scene Location</label>
+<div class="field-row">
+<select class="multi-pick-select" data-dynamic="scene_location" data-logic="standard" id="scene_location" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6"></select>
+<button class="lock-btn" onclick="toggleLock('scene_location')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🖼️ Background Style</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Background Style</label>
+<div class="field-row">
+<select class="multi-pick-select" data-dynamic="background_style" data-logic="standard" id="background_style" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6"></select>
+<button class="lock-btn" onclick="toggleLock('background_style')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>✨ Supporting Elements</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Supporting Elements</label>
+<div class="field-row">
+<select class="multi-pick-select" data-dynamic="supporting_elements" data-logic="standard" id="supporting_elements" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6"></select>
+<button class="lock-btn" onclick="toggleLock('supporting_elements')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🌦️ Weather</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Weather</label>
+<div class="field-row">
+<select class="multi-pick-select" data-dynamic="weather_mode" data-logic="standard" id="weather_mode" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6"></select>
+<button class="lock-btn" onclick="toggleLock('weather_mode')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🎯 Text Placement</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Text Placement</label>
+<div class="field-row">
+<select class="multi-pick-select" data-dynamic="text_placement" data-logic="standard" id="text_placement" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6"></select>
+<button class="lock-btn" onclick="toggleLock('text_placement')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🕒 Time of Day</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Time of Day</label>
+<div class="field-row">
+<select class="multi-pick-select" data-dynamic="time_of_day" data-logic="standard" id="time_of_day" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6"></select>
+<button class="lock-btn" onclick="toggleLock('time_of_day')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🍂 Season</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Season</label>
+<div class="field-row">
+<select class="multi-pick-select" data-dynamic="season_mode" data-logic="standard" id="season_mode" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6"></select>
+<button class="lock-btn" onclick="toggleLock('season_mode')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🖌️ Art Style</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Art Style</label>
+<div class="field-row">
+<select class="multi-pick-select" data-dynamic="art_style" data-logic="standard" id="art_style" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6"></select>
+<button class="lock-btn" onclick="toggleLock('art_style')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details open="">
+<summary>🎵 Song Genre &amp; Style</summary>
+<div class="details-content">
+<div class="form-grid">
+<div class="form-group">
+<label>Song Genre &amp; Style</label>
+<div class="field-row">
+<select class="multi-pick-select" data-dynamic="song_genre_style" data-logic="standard" id="song_genre_style" multiple="" onchange="applyConditionalLogic(); updateFieldState(this);" size="6"></select>
+<button class="lock-btn" onclick="toggleLock('song_genre_style')" title="Lock this field" type="button">UNLOCK</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+<div class="custom-section" id="preset-section">
+<h3 style="color: var(--accent); margin-bottom: 16px; font-size: 1.1em;">⚡ Presets</h3>
+<div class="form-grid">
+<div class="form-group">
+<label>Preset Library</label>
+<div class="field-row">
+<select id="preset_select" onchange="updateFieldState(this);">
+<option value="">None</option>
+<option value="After Hours Chrome">After Hours Chrome</option><option value="Alley Gold Rush">Alley Gold Rush</option><option value="Blue Flame Signature">Blue Flame Signature</option><option value="Bronx Luxe">Bronx Luxe</option><option value="Candy Chrome Drift">Candy Chrome Drift</option><option value="City Gloss Script">City Gloss Script</option><option value="Concrete Crown">Concrete Crown</option><option value="Couture Wall Energy">Couture Wall Energy</option><option value="Electric Velvet">Electric Velvet</option><option value="Gallery Glow Tag">Gallery Glow Tag</option><option value="Gilded Night Burner">Gilded Night Burner</option><option value="Glass Glow Lettering">Glass Glow Lettering</option><option value="Gold Dust Wildstyle">Gold Dust Wildstyle</option><option value="High Shine Hustle">High Shine Hustle</option><option value="Luxury Tunnel Echo">Luxury Tunnel Echo</option><option value="Midnight Drip Society">Midnight Drip Society</option><option value="Neon Royal Riot">Neon Royal Riot</option><option value="Penthouse Street Script">Penthouse Street Script</option><option value="Poster Wall Heat">Poster Wall Heat</option><option value="Royal Blue Rebellion">Royal Blue Rebellion</option><option value="Runway Brick Bomb">Runway Brick Bomb</option><option value="Silver Halo Motion">Silver Halo Motion</option><option value="Soft Glam Street">Soft Glam Street</option><option value="Sunset Tag Theory">Sunset Tag Theory</option><option value="Velvet Chrome Queen">Velvet Chrome Queen</option></select>
+<button class="lock-btn" onclick="applyPreset()" type="button">LOAD</button>
+</div>
+</div>
+</div>
+</div>
+<div class="custom-section">
+<h3 style="color: var(--accent); margin-bottom: 16px; font-size: 1.1em;">✍️ Custom Details (Optional)</h3>
+<div class="form-grid">
+<div class="form-group">
+<label>Custom Creative Direction</label>
+<input class="custom-input" id="custom_creative" oninput="this.style.borderColor = this.value ? 'var(--accent)' : 'var(--border-color)';" placeholder="e.g., luxury streetwear energy, bold campaign mood, royal blue and gold graffiti wall..." type="text"/>
+</div>
+<div class="form-group">
+<label>Must-Have Elements</label>
+<input class="custom-input" id="custom_elements" oninput="this.style.borderColor = this.value ? 'var(--accent)' : 'var(--border-color)';" placeholder="e.g., brand name, chrome edges, gold accents, paint drips, upscale urban vibe..." type="text"/>
+</div>
+</div>
+</div>
+<div class="control-bar">
+<button onclick="generatePrompt()">Generate Prompt</button>
+<button onclick="randomizeForm()">🎲 Randomize (Unlocked)</button>
+<button onclick="copyPrompt(event)">Copy</button>
+<button onclick="saveCurrentPrompt(event)">Save Prompt</button><button onclick="clearAll()">Clear All</button>
+</div>
+<div class="triple-output-grid">
+<div class="output-card">
+<h3>🖼️ Image Prompt</h3>
+<textarea class="mini-output" id="output" placeholder="Your professional image prompt will appear here..." readonly=""></textarea>
+<div class="status-line">
+<span id="lengthStatus">0 words · 0 characters</span>
+<span class="warning hidden" id="trimWarning">⚠️ Prompt optimized for output limits</span>
+</div>
+</div>
+<div class="output-card">
+<h3>🎬 Video Script Prompt</h3>
+<textarea class="mini-output" id="video_output" placeholder="Your video script prompt will appear here..." readonly=""></textarea>
+<div style="margin-top: 12px;">
+<button onclick="copySpecificPrompt('video_output', event)">Copy Video Prompt</button>
+</div>
+</div>
+<div class="output-card">
+<h3>🎵 Suno Song Prompt</h3>
+<textarea class="mini-output" id="suno_output" placeholder="Your Suno prompt will appear here..." readonly=""></textarea>
+<div style="margin-top: 12px;">
+<button onclick="copySpecificPrompt('suno_output', event)">Copy Suno Prompt</button>
+</div>
+</div>
+</div>
+<div class="marketing-grid">
+<div class="output-card">
+<h3>📣 Caption Suggestions</h3>
+<textarea class="mini-output" id="caption_output" placeholder="Your high-converting captions will appear here..." readonly=""></textarea>
+<div>
+<button class="copy-small-btn" onclick="copySpecificPrompt('caption_output', event)">Copy Captions</button>
+</div>
+</div>
+<div class="output-card">
+<h3>💼 Marketing Strategy</h3>
+<textarea class="mini-output" id="marketing_output" placeholder="Your marketing angles and CTA ideas will appear here..." readonly=""></textarea>
+<div>
+<button class="copy-small-btn" onclick="copySpecificPrompt('marketing_output', event)">Copy Marketing Info</button>
+</div>
+</div>
+</div>
+<div class="marketing-note"><strong>Built to sell:</strong> generate the visual, test the caption, grab the CTA, and send people straight to your product page, shop link, or lead magnet.</div><details id="prompt-history"><summary>🗂️ Prompt History</summary><div class="details-content">
+<div class="history-panel">
+<div class="history-topline">
+<span>Saved prompts stay in your browser on this device.</span>
+<button class="copy-small-btn" onclick="clearPromptHistory(event)" type="button">Clear History</button>
+</div>
+<div class="history-empty" id="history_empty">No saved prompts yet.</div>
+<div class="history-list" id="history_list"></div>
+</div></div></details>
+<footer class="site-footer">All rights reserved by GlamorousGrammyGlowUp</footer></div>
+</div>
+<script>
+        const data = {
+            page_title: "Graffiti Street Art Text Generator | Urban Clothing & Hip-Hop Brand Design Tool",
+            hero_title: "Raw Graffiti Text Art for Your Brand",
+            hero_subtitle: "Bold graffiti vibes with Glam energy, royal blue confidence, and gold-level shine",
+            is_portrait: false,
+            model_used: "claude-haiku-4-5-20251001"
+        };
+
+        function getValue(id) {
+            const element = document.getElementById(id);
+            return element ? element.value : '';
+        }
+
+        function getAllSelects() {
+            return document.querySelectorAll('select:not(#preset_select)');
+        }
+
+        function getSelectedValues(select) {
+            if (!select) return [];
+            return Array.from(select.selectedOptions || [])
+                .map(option => option.value.trim())
+                .filter(value => value && value.toLowerCase() !== 'none');
+        }
+
+        function updateFieldState(select) {
+            const selectedValues = getSelectedValues(select);
+            if (selectedValues.length > 0) {
+                select.classList.add('has-value');
+            } else {
+                select.classList.remove('has-value');
+            }
+        }
+
+        function enforcePromptLimit(text) {
+            const words = text.trim().split(/\s+/).filter(Boolean);
+            let trimmed = false;
+
+            if (words.length > 280) {
+                text = words.slice(0, 280).join(' ');
+                trimmed = true;
+            }
+
+            if (text.length > 1990) {
+                text = text.slice(0, 1990);
+                trimmed = true;
+            }
+
+            document.getElementById('trimWarning').classList.toggle('hidden', !trimmed);
+            return text;
+        }
+
+        function updateLengthStatus(text) {
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const chars = text.length;
+            document.getElementById('lengthStatus').textContent = `${words} words · ${chars} characters`;
+        }
+
+        function applyConditionalLogic() {
+            const genderSelect = document.getElementById('gender_control');
+            const ageSelect = document.getElementById('age_control');
+
+            if (!genderSelect || !ageSelect) return;
+
+            const gender = genderSelect.value.toLowerCase();
+            const ageText = ageSelect.value.toLowerCase();
+
+            let ageNumber = 18;
+            if (ageText.includes('child') || ageText.includes('4-9')) ageNumber = 7;
+            else if (ageText.includes('pre-teen') || ageText.includes('10-13')) ageNumber = 12;
+            else if (ageText.includes('teenager') || ageText.includes('14-19')) ageNumber = 16;
+            else if (ageText.includes('young adult') || ageText.includes('20-29')) ageNumber = 25;
+
+            document.querySelectorAll('select[data-logic="beard"]').forEach(beardSelect => {
+                const wrapper = beardSelect.closest('details');
+                if (ageNumber < 14) {
+                    wrapper.classList.add('hidden');
+                    beardSelect.value = '';
+                } else {
+                    wrapper.classList.remove('hidden');
+                }
+            });
+
+            ['hair', 'clothing'].forEach(logicType => {
+                document.querySelectorAll(`select[data-logic="${logicType}"]`).forEach(select => {
+                    Array.from(select.options).forEach(option => {
+                        const text = option.textContent.toLowerCase();
+                        let shouldHide = false;
+
+                        if (gender === 'male' && text.includes('(female)')) shouldHide = true;
+                        if (gender === 'female' && text.includes('(male)')) shouldHide = true;
+
+                        option.hidden = shouldHide;
+                        if (shouldHide && option.selected) {
+                            select.value = '';
+                            updateFieldState(select);
+                        }
+                    });
+                });
+            });
+
+            if (gender === 'female') {
+                document.querySelectorAll('select[data-logic="beard"]').forEach(beardSelect => {
+                    const wrapper = beardSelect.closest('details');
+                    wrapper.classList.add('hidden');
+                    beardSelect.value = '';
+                });
+            } else if (gender === 'male' && ageNumber >= 14) {
+                document.querySelectorAll('select[data-logic="beard"]').forEach(beardSelect => {
+                    const wrapper = beardSelect.closest('details');
+                    wrapper.classList.remove('hidden');
+                });
+            }
+        }
+
+        const lockedFields = new Set();
+
+        function toggleLock(fieldId) {
+            const button = document.querySelector(`button[onclick="toggleLock('${fieldId}')"]`);
+
+            if (lockedFields.has(fieldId)) {
+                lockedFields.delete(fieldId);
+                button.textContent = 'UNLOCK';
+                button.classList.remove('locked');
+                button.title = 'Lock this field';
+            } else {
+                lockedFields.add(fieldId);
+                button.textContent = 'LOCKED';
+                button.classList.add('locked');
+                button.title = 'Unlock this field';
+            }
+        }
+
+
+
+        const dynamicOptionSets = {
+            scene_location: [
+                "Abandoned rail yard with layered tags, rusted steel, and urban storytelling energy",
+                "Alley tunnel with echoing walls, reflective puddles, and dramatic perspective depth",
+                "Art district side street with curated mural culture and premium creative buzz",
+                "Beach boardwalk wall with sun-faded texture and colorful tourist-city energy",
+                "Boutique shopping district mural lane with polished street-luxury atmosphere",
+                "City rooftop wall with skyline views and high-end campaign attitude",
+                "Concrete skate park bowl edge with youth culture motion and raw wall energy",
+                "Converted warehouse district with industrial texture and editorial edge",
+                "Courtyard brick passage with layered character and boutique urban softness",
+                "Desert motel wall with retro grit and cinematic Americana mood",
+                "Downtown alley with steam vents, poster tears, and late-night city tension",
+                "Elevated train platform wall with transit grit and metropolitan rhythm",
+                "Festival mural corridor packed with creative culture and celebratory motion",
+                "Garden courtyard wall where street art meets upscale lifestyle ambiance",
+                "Graffiti legal wall park with massive scale and public-art energy",
+                "Historic market alley with character-rich surfaces and lived-in authenticity",
+                "Hotel service alley upgraded into a fashion-forward editorial backdrop",
+                "Industrial loading dock with steel doors, caution markings, and bold visual punch",
+                "Lakeside retaining wall with open-air atmosphere and clean reflective depth",
+                "Luxury penthouse terrace feature wall with polished urban exclusivity",
+                "Modern parking garage corner with geometric lines and cool tonal depth",
+                "Neon downtown side street with nightlife energy and cinematic rebellion",
+                "Open underpass wall with strong perspective lines and authentic city texture",
+                "Outdoor studio backlot with controlled creative staging and urban polish",
+                "Pier-side wall with coastal grit and airy metropolitan edge",
+                "Private courtyard mural wall with upscale serenity and artistic confidence",
+                "Rooftop helipad perimeter wall with power, scale, and prestige-city mood",
+                "Shipping container lot with stacked industrial color and streetwear campaign energy",
+                "Subway corridor wall with layered motion blur and metropolitan pulse",
+                "Sunlit side alley behind boutiques with chic city texture and soft realism",
+                "Urban basketball court wall with sport-culture intensity and dynamic edge",
+                "Urban bridge support with towering scale and gritty architectural drama",
+                "Vintage downtown brick lane with timeless character and authentic wear",
+                "Warehouse catwalk wall with industrial depth and moody fashion attitude",
+                "Waterfront promenade wall with premium cityscape openness and clean texture",
+                "West-coast boardwalk mural zone with playful edge and salty atmosphere",
+                "Windy rooftop service corridor with dramatic skyline tension and strong lines",
+                "Worn motel courtyard wall with cinematic nostalgia and rebellious glamour",
+                "Youth arts center exterior wall with vibrant community energy",
+                "Zen city garden wall mixing concrete calm with curated graffiti luxury"
+            ],
+            background_style: [
+                "Abstract color-burst backdrop with layered paint clouds and controlled chaos",
+                "Archival poster collage background with ripped paper edges and street history depth",
+                "Blacked-out luxury wall with faint reflections and dramatic tonal separation",
+                "Blurred city traffic background with cinematic motion streaks behind the art",
+                "Bokeh nightlife backdrop with glowing color dots and urban glamour",
+                "Brick-and-poster mashup background with raw texture and layered storytelling",
+                "Burnished metal background with industrial sheen and premium grit",
+                "Chalk haze backdrop with dusty texture and hand-built street authenticity",
+                "Chrome liquid background with reflective movement and futuristic street-luxury energy",
+                "Clean concrete backdrop with subtle patina and premium commercial simplicity",
+                "Clouded mural wash background with soft atmospheric blending and painterly depth",
+                "Collage paper wall with mixed media layering and editorial-art attitude",
+                "Color-gradient wall with luxe fade transitions and polished display quality",
+                "Dark moody wall with edge lighting and rich visual separation",
+                "Distressed flyer wall covered in layered urban announcements and texture",
+                "Fine mist atmospheric background with soft diffusion and cinematic depth",
+                "Fog-drenched backdrop with mystery, softness, and moody city drama",
+                "Gallery-style white wall background with controlled minimalist prestige",
+                "Geometric panel background with structured lines and modern graphic order",
+                "Glossy tiled wall backdrop with reflective repeats and upscale urban shine",
+                "Golden haze background with warm city glow and luxury commercial feel",
+                "Graffiti-over-graffiti background with stacked tag history and vibrant density",
+                "Grit-textured asphalt background with rugged realism and strong contrast",
+                "Light-burst backdrop with radiant center glow and premium ad-style energy",
+                "Neon vapor background with electric haze and nightlife rebellion",
+                "Paint-splashed studio wall with controlled mess and fashion-forward edge",
+                "Pastel cloud wall background with soft glam drift and airy brightness",
+                "Photographic city skyline blur behind the wall for layered campaign depth",
+                "Polished black stone background with rich contrast and expensive mood",
+                "Reflective puddle ground plane with mirrored color glow under the lettering",
+                "Shadow-striped wall background with graphic rhythm and cinematic contrast",
+                "Soft gradient dusk background with subtle atmosphere and elegant color flow",
+                "Spray-fogged background with aerosol bloom and authentic wall energy",
+                "Sun-faded mural background with weathered warmth and lived-in soul",
+                "Textured stucco backdrop with refined imperfection and boutique-city feel",
+                "Tunnel-depth background with receding perspective and urban drama",
+                "Velvet night background with rich dark tones and luminous highlights",
+                "Warm terracotta wall backdrop with artful softness and grounded richness",
+                "Wet pavement reflection background with moody city shine",
+                "White studio wall hybrid background balancing street art grit with commercial polish"
+            ],
+            supporting_elements: [
+                "Aerosol caps scattered nearby for authentic process detail and artist presence",
+                "Barcode stickers and micro-label details for fashion-campaign realism",
+                "Bold arrows wrapping around the lettering with motion and direction",
+                "Broken-heart doodles and marker accents adding personality and urban attitude",
+                "Butterfly decals drifting around the art for feminine contrast and softness",
+                "Chain-link fence shadows for layered depth and street realism",
+                "Chrome stars and metallic sparkle hits for glam visual payoff",
+                "City map fragments collaged into the wall for local identity and texture",
+                "Cloud puffs and vapor bursts boosting motion and playful aerosol energy",
+                "Crown iconography accenting the design with confidence and power branding",
+                "Crystal frame accents adding polished glamour around the main text",
+                "Diamond glints and gem-like flares heightening luxury street appeal",
+                "Dripping heart icons blending toughness and femininity in one mural statement",
+                "Floating paper scraps and poster tears for layered street-story texture",
+                "Glow scribbles and electric tracing lines energizing the composition",
+                "Hand-drawn stars and spark trails adding playful detail without clutter",
+                "Headphone illustration accents hinting at music culture and rhythm",
+                "High-shine paint drips emphasizing fresh wall action and visual drama",
+                "Lightning bolts punching in speed, energy, and rebellious edge",
+                "Mini tag clusters around the main piece for believable street depth",
+                "Money-sign accents used tastefully for hustle culture and bold ambition",
+                "Paint splatters kicked outward for raw motion and high-impact street energy",
+                "Pearl-glow flecks for a polished glam-street crossover finish",
+                "Polaroid frame cutouts giving collage energy and visual layering",
+                "Poster fragments with torn corners adding history and tactile richness",
+                "Rose motifs adding elegance, softness, and brandable feminine balance",
+                "Shadow silhouettes of passing city life for movement and narrative",
+                "Sparkle dust spread across highlights for luxe graphic emphasis",
+                "Spray halo rings pushing focus toward the center text placement",
+                "Sticker bomb accents creating playful clutter and underground credibility",
+                "Street cones and caution details for industrial authenticity and contrast",
+                "Subtle birds in flight adding freedom and open-air movement",
+                "Tape strips and pasted corners giving mixed-media realism",
+                "Urban vines creeping along the wall for soft-organic contrast",
+                "Vintage boombox motifs nodding to hip-hop roots and rhythm culture",
+                "Water droplets catching light for moody realism and reflective sparkle",
+                "Wing motifs framing the text for uplift and iconic logo-like presence",
+                "Wire shadows and overhead cables adding gritty urban atmosphere",
+                "Y2K chrome icons elevating the scene with glossy throwback cool",
+                "Zigzag motion marks creating dynamic movement and visual punch"
+            ],
+            weather_mode: [
+                "After-rain damp air with reflective surfaces and moody color intensity",
+                "Autumn breeze carrying paper scraps and cool city movement",
+                "Clear crisp weather with high visibility and sharp wall detail",
+                "Cloudy urban calm with soft shadows and balanced mural readability",
+                "Cold winter air with subtle breath-like haze and dramatic contrast",
+                "Dry desert warmth with powdery atmosphere and sun-baked texture",
+                "Fine mist hanging in the air for softness and cinematic depth",
+                "Golden-hour warmth under clean pleasant skies with rich tonal glow",
+                "Heavy fog rolling through the scene with mystery and diffused contrast",
+                "Heat shimmer subtly lifting from the ground for stylized summer tension",
+                "Humid summer air with glossy surfaces and saturated color richness",
+                "Light drizzle creating reflective shine and believable city mood",
+                "Moody overcast weather with soft directionless light and premium texture detail",
+                "Morning dew freshness adding clarity, coolness, and polished realism",
+                "Post-storm atmosphere with dramatic clouds and charged visual energy",
+                "Soft spring air with delicate movement and welcoming brightness",
+                "Sun-after-rain sparkle with cleaned surfaces and luminous highlights",
+                "Sunny clear skies with bright exposure and punchy wall color",
+                "Thunderstorm tension in the distance with dramatic urban atmosphere",
+                "Windy city conditions with movement in debris, paper, and styling elements",
+                "Winter drizzle with chilled reflections and subtle street melancholy",
+                "Warm evening air with soft motion and relaxed nightlife transition",
+                "Hazy late-summer heat with dreamy glow and softened edges",
+                "Crisp nighttime chill with clean neon reflections and dense contrast",
+                "Dusty street breeze with gritty realism and moving particles",
+                "Electric storm mood with atmospheric tension and stylized drama",
+                "Fresh post-rain clarity with deepened color saturation and premium sheen",
+                "Gentle coastal breeze with airy openness and lightly moving elements",
+                "Light snowfall drifting through the frame for unexpected visual contrast",
+                "Monsoon-style wet conditions with bold reflections and dramatic richness",
+                "Muggy city-night air with glowing moisture and sticky realism",
+                "Overheated pavement atmosphere with bold summer edge and shimmer",
+                "Soft sunset calm with stable air and rich warm balance",
+                "Street-level steam mixing with cool air for moody cinematic realism",
+                "Subtle wind gusts adding life without overpowering the composition",
+                "Transitional dawn chill with quiet city mood and bluish light",
+                "Tropical humidity with lush air glow and high-saturation vibrancy",
+                "Urban heatwave mood with intense brightness and baked-in texture",
+                "Wet-night weather with mirrored neon color and premium city drama",
+                "Zero-wind stillness for a clean, controlled, high-end mural presentation"
+            ],
+            text_placement: [
+                "Bottom-center composition with strong grounding and clean negative space above",
+                "Center placement with balanced breathing room and strong commercial readability",
+                "Center-right composition allowing environmental storytelling on the left side",
+                "Centered and perfectly aligned for strong headline impact within the image",
+                "Centered within a glowing focal zone so the text stays the undeniable hero",
+                "Dead-center with symmetrical framing for premium poster-like balance",
+                "Floating upper-center placement with clean supporting detail beneath the text",
+                "Full-center hero placement anchored by subtle background framing cues",
+                "Left-aligned mural placement with negative space opening toward the right",
+                "Lower-third placement for ad-style hierarchy with room for atmospheric depth above",
+                "Mid-left placement for editorial asymmetry and modern graphic tension",
+                "Mid-right placement for branded composition and directional visual flow",
+                "Near-center placement with a soft spotlight pulling the eye directly to the wording",
+                "Off-center but visually weighted back to the middle through lighting and framing",
+                "Perfect center lock so the wording lands straight in the middle of the image",
+                "Portrait-center placement designed to read cleanly on social content and covers",
+                "Slightly above center for elevated focus and luxe poster composition",
+                "Slightly below center for grounded weight and strong wall realism",
+                "Stacked center placement with the words feeling tall, dominant, and controlled",
+                "Top-center composition with supporting wall detail below the main lettering",
+                "Wrapped around a centered focal point to maintain visual balance and emphasis",
+                "Wide center spread across the wall with equal visual tension on both sides",
+                "Centered inside a subtle frame zone for logo-like clarity and polish",
+                "Centered with guide-like wall structure helping the placement feel intentional",
+                "Centered with halo emphasis so the text stays easy to read and visually premium",
+                "Centered with strong margin control to avoid crowding the edges",
+                "Centered with visual anchoring at eye level for clean brand-first composition",
+                "Corner placement softened by compositional balance so it still feels intentional",
+                "Lower-left placement paired with diagonal movement toward the main wall area",
+                "Lower-right placement with environmental motion guiding the eye inward",
+                "Middle-center placement optimized for billboard-style readability",
+                "Offset center placement with motion elements directing attention back to the text",
+                "Top-left placement for bold editorial crop and urban poster attitude",
+                "Top-right placement balanced by negative space and secondary wall texture",
+                "Vertical center stack built for tall social graphics and mobile screens",
+                "Wall-center lock with direct front-facing readability and campaign precision",
+                "Centered for product mockups, covers, and clean promotional placements",
+                "Centered for strongest brand recall and easiest text readability",
+                "Centered to feel premium, intentional, and impossible to miss",
+                "Zone-centered composition with flexible support around the wording"
+            ],
+            time_of_day: [
+                "Afternoon brightness with crisp edges and commercially clean clarity",
+                "Blue-hour twilight with moody cool tones and glowing city accents",
+                "Cloudy midday with soft neutral light and reliable wall detail",
+                "Dawn light with fresh cool shadows and a quiet cinematic start",
+                "Early afternoon with energetic brightness and vibrant spray color response",
+                "Early evening with warm transition light and stylish city calm",
+                "Golden hour with warm highlights and flattering depth across the wall",
+                "Late afternoon with dimensional side light and rich contrast balance",
+                "Late night with neon reflections and deep urban drama",
+                "Mid-morning sunlight with clean optimism and sharp commercial readability",
+                "Midday light with bold visibility and punchy realistic texture",
+                "Midnight atmosphere with city glow, mystery, and premium rebellion",
+                "Morning blue light with soft calm energy and crisp edges",
+                "Overcast dusk with muted mood and refined cinematic subtlety",
+                "Post-sunset glow with residual warmth and nightlife tension",
+                "Pre-dawn darkness with faint ambient city light and dramatic anticipation",
+                "Sunrise warmth just hitting the wall for fresh, hopeful impact",
+                "Twilight haze blending day softness with night-city glow",
+                "Noon intensity with strong realism and high-visibility wall detail",
+                "Evening neon onset with nightlife energy beginning to build",
+                "Soft dawn gradient with dreamy color separation and calm urban atmosphere",
+                "Harsh noon sun for high-contrast texture and bold shadow play",
+                "Late dusk with rich shadows and premium moody color depth",
+                "Morning golden light with gentle warmth and polished street clarity",
+                "Nightfall glow with city reflections and cinematic cool contrast",
+                "Post-rain evening light with reflective pavement and vivid color lift",
+                "Quiet sunrise blue with soft walls and restrained atmospheric elegance",
+                "Stormy afternoon light with dramatic clouds and tension-rich contrast",
+                "Sunset blaze with warm gradients and emotionally charged wall presence",
+                "Urban midnight neon with electric highlights and bold rebellious mood",
+                "Warm brunch-hour daylight with clean lifestyle brightness",
+                "Winter morning light with pale glow and crisp cool edges",
+                "Studio-lit night look with controlled shadows and premium ad polish",
+                "Late-morning clarity with energetic brightness and balanced detail",
+                "Moonlit night with cool shadows and subtle atmospheric shimmer",
+                "Golden twilight with long shadows and editorial drama",
+                "Rainy-night neon glow with bold reflections and luxe city mood",
+                "Bright overcast morning with soft detail-rich readability",
+                "Candle-warm evening ambience translated into urban wall mood",
+                "Sun-washed afternoon with high saturation and premium commercial realism"
+            ],
+            season_mode: [
+                "Autumn with crisp air, earthy atmosphere, and grounded visual richness",
+                "Blooming spring with fresh energy and light seasonal softness",
+                "Early autumn with subtle leaf tones and transitional city character",
+                "Early spring with airy brightness and clean revived urban mood",
+                "High summer with saturated color, heat, and vivid street life energy",
+                "Late autumn with moody richness and textural seasonal depth",
+                "Late spring with balanced warmth and uplifting creative atmosphere",
+                "Late summer with bold heat, glowing color, and relaxed urban confidence",
+                "Mid-winter with sharp contrast and cool atmospheric tension",
+                "Spring with fresh color response and optimistic city vibrancy",
+                "Summer with warm air, bright energy, and full-color wall impact",
+                "Winter with cool shadows, crisp surfaces, and dramatic mood",
+                "Rainy spring with freshness, softness, and reflective realism",
+                "Holiday winter mood with upscale sparkle and cold-weather glamour",
+                "Golden autumn with rich warmth and luxe city nostalgia",
+                "Transitional season with flexible styling and mixed-weather realism",
+                "Peak summer with strong light and energetic street vibrance",
+                "Soft spring bloom season with breezy brightness and renewed color",
+                "Cool fall mood with layered atmosphere and grounded elegance",
+                "Icy winter scene with polished coldness and reflective tonal drama",
+                "Festival summer vibe with movement, brightness, and social energy",
+                "Crisp harvest season tone with texture-rich earthy balance",
+                "Mild spring afternoon seasonality with relaxed urban freshness",
+                "Sun-drenched summer season with bold contrast and visual heat",
+                "Muted late-fall mood with moody wall character and depth",
+                "Fresh early-summer atmosphere with vibrant yet clean outdoor energy",
+                "Cold late-winter transition with gritty realism and sharp air",
+                "Flower-forward spring mood with glam softness and color uplift",
+                "Vacation-season summer energy with playful open-air confidence",
+                "Windy fall season with motion, atmosphere, and tactile city texture",
+                "New-year winter edge with cool luxury and polished seriousness",
+                "Pre-spring thaw feeling with subtle softness and urban calm",
+                "Scorching midsummer heat with intense color and street tension",
+                "Soft late-spring glow with flattering warmth and fresh clarity",
+                "Stormy seasonal transition with mixed mood and cinematic weather",
+                "Urban holiday season with sparkle, chill, and night-city beauty",
+                "Warm early-fall season with golden softness and stylish maturity",
+                "Wet winter city season with reflective depth and dramatic coolness",
+                "Yellow-leaf autumn feel with nostalgic color motion",
+                "Year-round neutral seasonality for maximum style flexibility"
+            ],
+            art_style: [
+                "3D graffiti illustration with dimensional depth and commercial polish",
+                "Abstract street-art fusion with bold gesture and layered mixed-media energy",
+                "Airbrushed poster finish with clean gradients and glossy urban sharpness",
+                "Billboard campaign realism with premium clarity and ad-level presence",
+                "Bold editorial illustration with fashion-forward attitude and controlled detail",
+                "Brush-lettered mural art with tactile motion and handmade authenticity",
+                "Cinematic realism with rich light shaping and believable city texture",
+                "Clean commercial render with premium edge separation and polished finish",
+                "Collage-driven mixed media with paper texture and street-culture layering",
+                "Contemporary mural illustration with gallery-worthy color balance",
+                "Digital painting with stylized spray textures and rich tonal control",
+                "Editorial campaign art with luxury-street crossover polish",
+                "Fashion-poster realism with high-end visual hierarchy and glow",
+                "Fine-art graffiti painting with layered detail and premium texture richness",
+                "Graphic novel street aesthetic with bold linework and dramatic mood",
+                "Hand-painted wall realism with tactile brushwork and believable scale",
+                "High-gloss promotional art with polished texture and poster-level impact",
+                "Hyperreal urban realism with strong materials and crisp atmospheric detail",
+                "Illustrated mural concept art with premium scene-building depth",
+                "Luxury commercial street-art style with glossy finish and elegant control",
+                "Magazine-cover polish with strong focal hierarchy and visual sophistication",
+                "Mixed-media poster art with ripped textures and layered street attitude",
+                "Modern graffiti realism with elevated color coordination and clean finish",
+                "Painterly aerosol art with expressive blending and authentic spray bloom",
+                "Photoreal mural documentation style with professional campaign treatment",
+                "Posterized street-fashion artwork with sharp contrast and bold attitude",
+                "Premium digital mural render with controlled reflections and detail depth",
+                "Retro graffiti print style with nostalgic character and stylized finish",
+                "Spray-paint illustration with tactile aerosol texture and polished shadows",
+                "Street-luxury concept art with expensive mood and cinematic edge",
+                "Stylized realism blending graffiti culture with ad-ready presentation",
+                "Textured mural photography feel with rich wall realism and visual depth",
+                "Urban editorial illustration with glossy highlights and premium composition",
+                "Urban fantasy mural style with luminous effects and elevated drama",
+                "Vintage spray-poster aesthetic with aged charm and commercial balance",
+                "Wall-art catalog realism for clean productized visual presentation",
+                "Y2K chrome street-art aesthetic with glossy throwback energy",
+                "Minimal luxe mural style with curated restraint and high-end clarity",
+                "Graffiti-meets-gallery style with polished artistic confidence",
+                "Commercial concept-board style for premium brand visualization"
+            ],
+            song_genre_style: [
+                "Afrobeats with glossy percussion, catchy chant energy, and uplifting bounce",
+                "Alternative pop with stylish hooks, cool attitude, and polished production",
+                "Ambient soul with airy pads, soft pulse, and luxe emotional space",
+                "Boom bap with confident swagger, classic rhythm, and branded street confidence",
+                "Bounce-inspired club chant with high-energy repetition and playful power",
+                "Cinematic pop anthem with big chorus lift and premium campaign drama",
+                "Dance-pop with bright hooks, glossy rhythm, and crowd-friendly replay value",
+                "Drill-inspired edge with clean commercial polish and chant-ready bounce",
+                "Electro-pop with shiny synths and bold branded confidence",
+                "Funk-pop groove with attitude, replayable rhythm, and stylish flair",
+                "Gospel-pop uplift with celebratory harmony and powerful positivity",
+                "Hip-hop anthem with boss energy, memorable slogans, and sharp cadence",
+                "House groove with fashion-runway pulse and high-end nightlife energy",
+                "Jersey-club inspired rhythm with fast bounce and chant-worthy momentum",
+                "Latin-pop crossover with bright percussion and catchy commercial heat",
+                "Lo-fi groove with relaxed cool, soft swagger, and modern creator vibe",
+                "Luxury trap-pop blend with sleek bounce and confident money-energy polish",
+                "Neo-soul with smooth richness, layered vocals, and empowering warmth",
+                "Old-school hip-hop flavor with playful swagger and iconic hook potential",
+                "Pop-rap crossover with catchy phrasing and strong creator-brand replay value",
+                "R&amp;B groove with sultry polish, confidence, and glossy melodic ease",
+                "Reggaeton-inspired pop with rhythmic drive and stylish nightlife confidence",
+                "Retro disco-pop with glittering bounce and feel-good movement",
+                "Soulful anthem with emotional lift and polished modern production",
+                "Southern bounce style with playful callouts and hard-hitting repeat hooks",
+                "Synth-pop with futuristic gloss and memorable branded melody",
+                "Trap-soul fusion with sleek vocal attitude and moody luxury texture",
+                "Uplifting empowerment anthem with chant-ready messaging and dynamic rise",
+                "Viral TikTok hook style with fast payoff, repetition, and catchy simplicity",
+                "West-coast bounce with sunny confidence and laid-back swagger",
+                "Club-ready female anthem with bold chant moments and polished rhythm",
+                "Luxury jingle style built for catchy branding and quick recall",
+                "Inspirational pop-soul with warm lift and motivational hook writing",
+                "Streetwear campaign anthem with bold chants and fashionable cool",
+                "Soft glam love-song style with polished melody and feminine warmth",
+                "Bold creator-brand jingle with quick slogan impact and earworm phrasing",
+                "Festival-style chant record with huge hook energy and wide appeal",
+                "Moody after-dark pop with sleek tension and premium vocal texture",
+                "Commercial ad-music style with bright punch, clarity, and instant memorability",
+                "Genre-fluid blend with freedom to mix moods, sounds, and vocal approaches"
+            ]
+        };
+
+        function populateDynamicSelects() {
+            document.querySelectorAll('select[data-dynamic]').forEach(select => {
+                const key = select.dataset.dynamic;
+                const options = dynamicOptionSets[key] || [];
+                const sortedOptions = [...options].sort((a, b) => a.localeCompare(b));
+                select.innerHTML = '<option value="">None</option>' + sortedOptions.map(option => `<option value="${option.replace(/"/g, '&quot;')}">${option}</option>`).join('');
+            });
+        }
+
+        function injectCustomBoxesIntoDetails() {
+            document.querySelectorAll('details .details-content').forEach(content => {
+                if (content.querySelector('.inline-custom-wrap')) return;
+                const labelEl = content.querySelector('.form-group label');
+                if (!labelEl) return;
+                const categoryName = labelEl.textContent.trim();
+                const detail = content.closest('details');
+                const summary = detail ? detail.querySelector('summary') : null;
+                const base = (summary ? summary.textContent : categoryName).replace(/[^a-z0-9]+/gi, '_').toLowerCase().replace(/^_+|_+$/g, '');
+                const inputId = `${base}_custom`;
+                const wrap = document.createElement('div');
+                wrap.className = 'inline-custom-wrap';
+                wrap.innerHTML = `
+                    <label for="${inputId}">${categoryName} Custom Notes</label>
+                    <input type="text" id="${inputId}" class="custom-input detail-custom-input" data-category-label="${categoryName}" placeholder="Add any extra ${categoryName.toLowerCase()} direction here..." oninput="this.style.borderColor = this.value ? 'var(--accent)' : 'var(--border-color)';">
+                `;
+                content.appendChild(wrap);
+            });
+        }
+
+        const presetLibrary = {
+            "After Hours Chrome": {
+                        "spray_paint_style": "Chrome calligraphy graffiti with reflective strokes, luxurious flourishes, and smooth dimensional highlights",
+                        "surface_texture": "Mirror-polished stainless steel panel with brushed reflections for futuristic luxury graffiti presentation",
+                        "paint_effects": "Chrome reflection streaks creating mirror-like shine bands and premium metallic movement across the design",
+                        "street_art_era": "Y2K street luxe aesthetic with chrome finishes, bold candy colors, and turn-of-the-millennium swagger",
+                        "lighting_mood": "Rainy-night reflections with glossy pavement bounce light and cinematic saturation around the graffiti",
+                        "artist_signature": "Fashion-house graffiti signature with sleek letter rhythm, polished restraint, and premium branding attitude",
+                        "color_blend": "Silver chrome and ice blue blend with cool reflective sheen and futuristic clean finish"
+            },
+            "Alley Gold Rush": {
+                        "spray_paint_style": "Luxury serif graffiti with sculpted letterforms, bold outlines, and fashion-campaign sophistication",
+                        "surface_texture": "Weathered roll-up garage door with ribbed metal texture, chipped paint, and authentic alley attitude",
+                        "paint_effects": "Gloss coat finish adding wet-look shine, reflective depth, and premium poster-quality polish",
+                        "street_art_era": "Luxury street campaign aesthetic inspired by fashion advertising, upscale urban environments, and brand-forward visuals",
+                        "lighting_mood": "Golden-hour light washing across the wall with warm highlights and dimensional urban richness",
+                        "artist_signature": "Crown-tag signature with regal flourishes, sharp finishing strokes, and luxury-street confidence",
+                        "color_blend": "Black and gold luxury blend with reflective warmth, deep contrast, and high-end editorial richness"
+            },
+            "Blue Flame Signature": {
+                        "spray_paint_style": "Handstyle script graffiti with confident sweeping strokes, rhythmic motion, and upscale urban polish",
+                        "surface_texture": "Pristine white concrete wall offering clean canvas for bold geometric graffiti designs and color saturation",
+                        "paint_effects": "Airbrush fade transitions with ultra-smooth color feathering and polished luxury finish across letter surfaces",
+                        "street_art_era": "Social-media-era street art built for viral visuals, polished color stories, and scroll-stopping impact",
+                        "lighting_mood": "Blue-hour city glow with soft ambient skylight and subtle storefront reflections across the graffiti surface",
+                        "artist_signature": "Silk-script signature with smooth flowing rhythm, elegant terminals, and editorial polish",
+                        "color_blend": "Midnight blue and royal blue gradient with luminous depth and premium tonal layering"
+            },
+            "Bronx Luxe": {
+                        "spray_paint_style": "Wildstyle graffiti with interlocking letters, complex arrows, and dynamic flowing lines in vibrant neon colors",
+                        "surface_texture": "Old subway tile wall with cracked grout lines and stained glaze for authentic transit tunnel energy",
+                        "paint_effects": "Micro-splatter mist creating fine aerosol freckles around contours for high-detail authentic spray realism",
+                        "street_art_era": "Bronx train-yard legacy style with classic burner energy, layered colors, and authentic old-school momentum",
+                        "lighting_mood": "Moody tunnel lighting with soft falloff, cinematic darkness, and focused illumination on the lettering",
+                        "artist_signature": "Sharp italic handstyle with speed-driven motion, clean cuts, and confident metropolitan attitude",
+                        "color_blend": "Royal blue and gold blend with polished metallic highlights and bold signature brand energy"
+            },
+            "Candy Chrome Drift": {
+                        "spray_paint_style": "Glass-effect bubble lettering with translucent fills, soft reflections, and glossy premium depth",
+                        "surface_texture": "Smooth glass storefront window with light reflection, ideal for transparent and layered graffiti effects",
+                        "paint_effects": "Reflective chrome hotspots catching simulated light with glossy metallic flash and dimensional emphasis",
+                        "street_art_era": "Y2K street luxe aesthetic with chrome finishes, bold candy colors, and turn-of-the-millennium swagger",
+                        "lighting_mood": "LED storefront spill casting colorful side light and polished commercial atmosphere onto the artwork",
+                        "artist_signature": "Gem-cut lettering style with faceted edges, sparkle cues, and glamorous urban sharpness",
+                        "color_blend": "Holographic pastel blend shifting between lilac, aqua, and pink with futuristic iridescent glow"
+            },
+            "City Gloss Script": {
+                        "spray_paint_style": "Calligraffiti style blending fluid handstyle scripts with upscale ornamental swashes and dramatic contrast",
+                        "surface_texture": "Smooth museum-style plaster wall with curated imperfections for refined gallery-meets-street presentation",
+                        "paint_effects": "Layered paint translucency revealing subtle undercolors through semi-opaque spray zones and blended shadows",
+                        "street_art_era": "Gallery-meets-alley contemporary art scene blending fine-art restraint with authentic graffiti character",
+                        "lighting_mood": "Cloudy daylight with diffused urban softness, balanced contrast, and highly readable color transitions",
+                        "artist_signature": "Calligraphic tag style with graceful loops, balanced tension, and elegant upscale motion",
+                        "color_blend": "Champagne and ivory gradient with soft luminosity and polished boutique-level elegance"
+            },
+            "Concrete Crown": {
+                        "spray_paint_style": "Architectural blockbuster featuring structured letters, solid fills, and dramatic shadow effects for wall prominence",
+                        "surface_texture": "Raw concrete foundation wall with aggregate stones visible, industrial texture for bold graffiti designs",
+                        "paint_effects": "Paint cracking with fine fracture networks and realistic drying stress patterns on surface",
+                        "street_art_era": "Post-graffiti design movement with abstract structure, controlled chaos, and refined metropolitan sophistication",
+                        "lighting_mood": "Overcast mural lighting with soft even exposure, rich surface detail, and premium campaign clarity",
+                        "artist_signature": "Architectural handstyle with sharp corners, measured flow, and premium logo-like authority",
+                        "color_blend": "Black and gold luxury blend with reflective warmth, deep contrast, and high-end editorial richness"
+            },
+            "Couture Wall Energy": {
+                        "spray_paint_style": "Elegant ribbon-letter graffiti with sweeping curves, polished outlines, and fashion-editorial energy",
+                        "surface_texture": "Pristine marble-effect wall with subtle veining, luxurious surface for sophisticated graffiti lettering designs",
+                        "paint_effects": "Gloss coat finish adding wet-look shine, reflective depth, and premium poster-quality polish",
+                        "street_art_era": "Fashion-week street takeover aesthetic with editorial polish, premium branding energy, and curated wall impact",
+                        "lighting_mood": "Flash-lit street editorial look with crisp highlights, controlled shadows, and fashion-shoot intensity",
+                        "artist_signature": "Fashion-house graffiti signature with sleek letter rhythm, polished restraint, and premium branding attitude",
+                        "color_blend": "Copper and blush metallic blend with warm reflective highlights and feminine glam depth"
+            },
+            "Electric Velvet": {
+                        "spray_paint_style": "Futuristic cyber wildstyle with razor-sharp extensions, luminous edges, and holographic spray transitions",
+                        "surface_texture": "Dark slate stone wall with subtle mineral texture, giving graffiti a premium moody architectural backdrop",
+                        "paint_effects": "Crystal sparkle accents scattered across highlights for glam street-art shimmer without losing raw edge",
+                        "street_art_era": "Afrofuturist street mural influence with cosmic symbolism, polished gradients, and culture-forward luxury energy",
+                        "lighting_mood": "Neon pink and purple graffiti with cinematic lighting, nighttime city mood",
+                        "artist_signature": "Velvet-drip tag with rich curves, tasteful drips, and glamorous underground personality",
+                        "color_blend": "Ruby and champagne contrast with glossy richness and upscale celebratory sparkle"
+            },
+            "Gallery Glow Tag": {
+                        "spray_paint_style": "Stencil-luxe graffiti with crisp cutout edges, layered overlays, and upscale street editorial finish",
+                        "surface_texture": "Smooth museum-style plaster wall with curated imperfections for refined gallery-meets-street presentation",
+                        "paint_effects": "Dusty overspray haze softening outer edges with atmospheric diffusion and authentic aerosol drift",
+                        "street_art_era": "Gallery-meets-alley contemporary art scene blending fine-art restraint with authentic graffiti character",
+                        "lighting_mood": "Cloudy daylight with diffused urban softness, balanced contrast, and highly readable color transitions",
+                        "artist_signature": "Minimal luxe tag with refined line economy, controlled spacing, and sophisticated wall presence",
+                        "color_blend": "Mocha, cream, and caramel blend with soft transitions and luxe neutral sophistication"
+            },
+            "Gilded Night Burner": {
+                        "spray_paint_style": "Complex wildstyle incorporating hidden letters, interlocking elements, and sophisticated color theory with metallic accents",
+                        "surface_texture": "Aged red brick wall with mortar cracks, perfect for vibrant spray paint contrast and urban texture",
+                        "paint_effects": "Reflective chrome hotspots catching simulated light with glossy metallic flash and dimensional emphasis",
+                        "street_art_era": "90s golden age hip-hop graffiti with wildstyle letters, authentic texture, and rich color depth",
+                        "lighting_mood": "Sunset city glow blending warm orange highlights with cool shadow tones for dramatic wall presence",
+                        "artist_signature": "Professional graffiti writer signature with interlocking letters, 3D depth effects, and chrome finish",
+                        "color_blend": "Deep emerald and gold fusion with jewel-tone richness, metallic shimmer, and regal impact"
+            },
+            "Glass Glow Lettering": {
+                        "spray_paint_style": "Glass-effect bubble lettering with translucent fills, soft reflections, and glossy premium depth",
+                        "surface_texture": "Glossy tiled surface with reflective properties, creating striking visual effects for modern graffiti designs",
+                        "paint_effects": "Layered paint translucency revealing subtle undercolors through semi-opaque spray zones and blended shadows",
+                        "street_art_era": "Contemporary street art with clean lines, minimalist design, and sophisticated color coordination",
+                        "lighting_mood": "LED storefront spill casting colorful side light and polished commercial atmosphere onto the artwork",
+                        "artist_signature": "Monogram-driven signature with intertwined initials, symmetrical flow, and designer-label energy",
+                        "color_blend": "Champagne and ivory gradient with soft luminosity and polished boutique-level elegance"
+            },
+            "Gold Dust Wildstyle": {
+                        "spray_paint_style": "Sophisticated wildstyle merging calligraphy elements, intricate details, and professional color harmony with metallic spray",
+                        "surface_texture": "Vintage brick wall with uneven surface and century-old mortar joints, perfect for character and depth",
+                        "paint_effects": "Smoke-kissed texture adding faint soot haze and gritty atmospheric residue around the painted composition",
+                        "street_art_era": "Global mural festival style featuring large-scale public-art confidence, clean execution, and vibrant storytelling",
+                        "lighting_mood": "Golden-hour light washing across the wall with warm highlights and dimensional urban richness",
+                        "artist_signature": "Professional wildstyle graffiti featuring intricate connections, 3D depth, and chrome finish",
+                        "color_blend": "Royal blue and gold blend with polished metallic highlights and bold signature brand energy"
+            },
+            "High Shine Hustle": {
+                        "spray_paint_style": "Smooth bubble letters with chrome reflection effects, soft halos, and elegant color gradients in cool palettes",
+                        "surface_texture": "Polished black stone facade with reflective depth, ideal for dramatic high-contrast luxury lettering",
+                        "paint_effects": "Gloss coat finish adding wet-look shine, reflective depth, and premium poster-quality polish",
+                        "street_art_era": "Luxury street campaign aesthetic inspired by fashion advertising, upscale urban environments, and brand-forward visuals",
+                        "lighting_mood": "Flash-lit street editorial look with crisp highlights, controlled shadows, and fashion-shoot intensity",
+                        "artist_signature": "Crown-tag signature with regal flourishes, sharp finishing strokes, and luxury-street confidence",
+                        "color_blend": "Black and gold luxury blend with reflective warmth, deep contrast, and high-end editorial richness"
+            },
+            "Luxury Tunnel Echo": {
+                        "spray_paint_style": "Dynamic wildstyle incorporating flowing ribbons, integrated arrows, and complex color transitions with spray effects",
+                        "surface_texture": "Old subway tile wall with cracked grout lines and stained glaze for authentic transit tunnel energy",
+                        "paint_effects": "Drip acceleration effect simulating fast-moving paint flow with elongated streaks and speed-based distortion",
+                        "street_art_era": "Transit tunnel bombing culture with fast layered tags, commuter grit, and underground city energy",
+                        "lighting_mood": "Moody tunnel lighting with soft falloff, cinematic darkness, and focused illumination on the lettering",
+                        "artist_signature": "Sharp italic handstyle with speed-driven motion, clean cuts, and confident metropolitan attitude",
+                        "color_blend": "Silver chrome and ice blue blend with cool reflective sheen and futuristic clean finish"
+            },
+            "Midnight Drip Society": {
+                        "spray_paint_style": "Raw throw-up style with visible spray texture, minimal detail, and authentic street art urgency and energy",
+                        "surface_texture": "Weathered concrete surface with peeling paint layers, exposing decades of street art history underneath",
+                        "paint_effects": "Drip intensity with heavy downward paint flow creating realistic gravity-affected streaks and runs",
+                        "street_art_era": "90s hip-hop era graffiti featuring fat letters, wildstyle complexity, and authentic spray paint feel",
+                        "lighting_mood": "Neon red and blue graffiti text reflecting in puddles, moody nighttime atmosphere",
+                        "artist_signature": "Raw underground graffiti tag with aggressive spray paint drips, bold lettering, and chaotic energy",
+                        "color_blend": "Midnight blue and royal blue gradient with luminous depth and premium tonal layering"
+            },
+            "Neon Royal Riot": {
+                        "spray_paint_style": "Wildstyle graffiti with interlocking letters, complex arrows, and dynamic flowing lines in vibrant neon colors",
+                        "surface_texture": "Rough concrete highway underpass with water stains and algae growth, authentic urban decay canvas",
+                        "paint_effects": "Overspray iridescence adding light-reactive color shifts and metallic sheen in spray mist areas",
+                        "street_art_era": "Modern underground aesthetic with abstract letterforms, spray paint splatters, and monochromatic scheme",
+                        "lighting_mood": "Neon-lit graffiti text glowing electric blue and pink against dark brick wall at night",
+                        "artist_signature": "Street art tag with bubble letters, thick black outlines, and vibrant neon color bursts",
+                        "color_blend": "Royal blue and gold blend with polished metallic highlights and bold signature brand energy"
+            },
+            "Penthouse Street Script": {
+                        "spray_paint_style": "Calligraffiti style blending fluid handstyle scripts with upscale ornamental swashes and dramatic contrast",
+                        "surface_texture": "Pristine marble-effect wall with subtle veining, luxurious surface for sophisticated graffiti lettering designs",
+                        "paint_effects": "Airbrush fade transitions with ultra-smooth color feathering and polished luxury finish across letter surfaces",
+                        "street_art_era": "Luxury street campaign aesthetic inspired by fashion advertising, upscale urban environments, and brand-forward visuals",
+                        "lighting_mood": "Sunset city glow blending warm orange highlights with cool shadow tones for dramatic wall presence",
+                        "artist_signature": "Silk-script signature with smooth flowing rhythm, elegant terminals, and editorial polish",
+                        "color_blend": "Copper and blush metallic blend with warm reflective highlights and feminine glam depth"
+            },
+            "Poster Wall Heat": {
+                        "spray_paint_style": "Cartoon-inspired bubble graffiti with exaggerated curves, playful contouring, and candy-coated gloss effects",
+                        "surface_texture": "Reclaimed plywood wall with layered posters, torn paper residue, and gritty DIY street texture",
+                        "paint_effects": "Ink bleed fusion where paint merges into soft staining around edges for mixed-media urban texture",
+                        "street_art_era": "Social-media-era street art built for viral visuals, polished color stories, and scroll-stopping impact",
+                        "lighting_mood": "Low-sun alley lighting with elongated shadows and rich warmth enhancing texture and paint depth",
+                        "artist_signature": "Street bombing aesthetic with bubble letters, bold outlines, and weathered wall texture",
+                        "color_blend": "Ruby and champagne contrast with glossy richness and upscale celebratory sparkle"
+            },
+            "Royal Blue Rebellion": {
+                        "spray_paint_style": "Chrome calligraphy graffiti with reflective strokes, luxurious flourishes, and smooth dimensional highlights",
+                        "surface_texture": "Pristine white concrete wall offering clean canvas for bold geometric graffiti designs and color saturation",
+                        "paint_effects": "Reflective chrome hotspots catching simulated light with glossy metallic flash and dimensional emphasis",
+                        "street_art_era": "Luxury street campaign aesthetic inspired by fashion advertising, upscale urban environments, and brand-forward visuals",
+                        "lighting_mood": "Blue-hour city glow with soft ambient skylight and subtle storefront reflections across the graffiti surface",
+                        "artist_signature": "Monogram-driven signature with intertwined initials, symmetrical flow, and designer-label energy",
+                        "color_blend": "Royal blue and gold blend with polished metallic highlights and bold signature brand energy"
+            },
+            "Runway Brick Bomb": {
+                        "spray_paint_style": "Luxury serif graffiti with sculpted letterforms, bold outlines, and fashion-campaign sophistication",
+                        "surface_texture": "Vintage brick wall with uneven surface and century-old mortar joints, perfect for character and depth",
+                        "paint_effects": "Chrome reflection streaks creating mirror-like shine bands and premium metallic movement across the design",
+                        "street_art_era": "Fashion-week street takeover aesthetic with editorial polish, premium branding energy, and curated wall impact",
+                        "lighting_mood": "Flash-lit street editorial look with crisp highlights, controlled shadows, and fashion-shoot intensity",
+                        "artist_signature": "Fashion-house graffiti signature with sleek letter rhythm, polished restraint, and premium branding attitude",
+                        "color_blend": "Black and gold luxury blend with reflective warmth, deep contrast, and high-end editorial richness"
+            },
+            "Silver Halo Motion": {
+                        "spray_paint_style": "Smooth bubble letters with chrome reflection effects, soft halos, and elegant color gradients in cool palettes",
+                        "surface_texture": "Smooth aluminum composite panel with slight oxidation, modern surface for sleek contemporary graffiti styles",
+                        "paint_effects": "Overspray halo intensity controlling atmospheric diffusion and soft-focus color spread beyond main design edges",
+                        "street_art_era": "Contemporary street art with minimalist approach, geometric elements, and refined color palette",
+                        "lighting_mood": "Overcast mural lighting with soft even exposure, rich surface detail, and premium campaign clarity",
+                        "artist_signature": "Minimal luxe tag with refined line economy, controlled spacing, and sophisticated wall presence",
+                        "color_blend": "Silver chrome and ice blue blend with cool reflective sheen and futuristic clean finish"
+            },
+            "Soft Glam Street": {
+                        "spray_paint_style": "Rounded bubble letters with soft gradients, bubble outlines, and playful pastel color schemes on white backgrounds",
+                        "surface_texture": "Freshly painted white wall with slight chalky texture, ideal for vibrant contrasting color graffiti art",
+                        "paint_effects": "Crystal sparkle accents scattered across highlights for glam street-art shimmer without losing raw edge",
+                        "street_art_era": "Contemporary street art with clean lines, minimalist design, and sophisticated color coordination",
+                        "lighting_mood": "Cloudy daylight with diffused urban softness, balanced contrast, and highly readable color transitions",
+                        "artist_signature": "Calligraphic tag style with graceful loops, balanced tension, and elegant upscale motion",
+                        "color_blend": "Champagne and ivory gradient with soft luminosity and polished boutique-level elegance"
+            },
+            "Sunset Tag Theory": {
+                        "spray_paint_style": "Handstyle script graffiti with confident sweeping strokes, rhythmic motion, and upscale urban polish",
+                        "surface_texture": "Paint-washed alley wall with layered roller marks and soft urban patina for lived-in realism",
+                        "paint_effects": "Dusty overspray haze softening outer edges with atmospheric diffusion and authentic aerosol drift",
+                        "street_art_era": "Global mural festival style featuring large-scale public-art confidence, clean execution, and vibrant storytelling",
+                        "lighting_mood": "Sunset city glow blending warm orange highlights with cool shadow tones for dramatic wall presence",
+                        "artist_signature": "Silk-script signature with smooth flowing rhythm, elegant terminals, and editorial polish",
+                        "color_blend": "Copper and blush metallic blend with warm reflective highlights and feminine glam depth"
+            },
+            "Velvet Chrome Queen": {
+                        "spray_paint_style": "Art deco graffiti fusion with elegant linework, mirrored symmetry, and luxury metallic accenting",
+                        "surface_texture": "Polished black stone facade with reflective depth, ideal for dramatic high-contrast luxury lettering",
+                        "paint_effects": "Gloss coat finish adding wet-look shine, reflective depth, and premium poster-quality polish",
+                        "street_art_era": "Fashion-week street takeover aesthetic with editorial polish, premium branding energy, and curated wall impact",
+                        "lighting_mood": "Golden-hour light washing across the wall with warm highlights and dimensional urban richness",
+                        "artist_signature": "Gem-cut lettering style with faceted edges, sparkle cues, and glamorous urban sharpness",
+                        "color_blend": "Royal blue and gold blend with polished metallic highlights and bold signature brand energy"
+            }
+};
+
+        function applyPreset() {
+            const presetSelect = document.getElementById('preset_select');
+            const presetName = presetSelect ? presetSelect.value : '';
+
+            if (!presetName || !presetLibrary[presetName]) {
+                alert('Please choose a preset first!');
+                return;
+            }
+
+            const preset = presetLibrary[presetName];
+
+            Object.entries(preset).forEach(([fieldId, value]) => {
+                const select = document.getElementById(fieldId);
+                if (select) {
+                    setSelectValues(select, value);
+                    updateFieldState(select);
+                }
+            });
+
+            generatePrompt();
+        }
+
+        function generatePrompt() {
+            const values = {};
+
+            getAllSelects().forEach(select => {
+                if (select.id === 'preset_select') return;
+                if (select.closest('details') && select.closest('details').classList.contains('hidden')) return;
+
+                const selectedValues = getSelectedValues(select);
+                if (selectedValues.length > 0) {
+                    const label = select.closest('.form-group').querySelector('label').textContent.trim();
+                    values[label] = selectedValues.join('; ');
+                }
+            });
+
+            document.querySelectorAll('.detail-custom-input').forEach(input => {
+                const customValue = input.value.trim();
+                if (customValue) {
+                    const baseLabel = input.dataset.categoryLabel || 'Category';
+                    values[`${baseLabel} Custom Notes`] = customValue;
+                }
+            });
+
+            const customCreative = document.getElementById('custom_creative').value.trim();
+            if (customCreative) {
+                values['Creative Direction'] = customCreative;
+            }
+
+            const customElements = document.getElementById('custom_elements').value.trim();
+            if (customElements) {
+                values['Must-Have Elements'] = customElements;
+            }
+
+            if (Object.keys(values).length === 0) {
+                alert('Please select at least one option before generating!');
+                return;
+            }
+
+            const textPlacement = values['Text Placement'] || 'Centered and perfectly aligned for strong headline impact within the image';
+            const selectedGenre = values['Song Genre & Style'] || 'Genre-fluid blend with freedom to mix moods, sounds, and vocal approaches';
+            const titleHint = values['Must-Have Elements'] || values['Creative Direction'] || 'the main brand phrase';
+            const locationHint = values['Scene Location'] || 'a strong urban hero setting';
+            const artStyleHint = values['Art Style'] || 'premium cinematic graffiti realism';
+            const timeHint = values['Time of Day'] || 'the most flattering lighting for the concept';
+            const seasonHint = values['Season'] || 'whatever season best matches the mood';
+            const weatherHint = values['Weather'] || 'clean atmosphere with brand-friendly visibility';
+            const backgroundHint = values['Background Style'] || 'a supportive premium background';
+            const elementHint = values['Supporting Elements'] || 'subtle supporting elements that enhance the main text';
+
+            let promptSections = [];
+            let subject = 'Professional graffiti street art text design for a bold luxury brand, high-impact urban visual identity, premium creative direction';
+            promptSections.push(`Subject & Identity
+${subject}`);
+
+            for (const [category, value] of Object.entries(values)) {
+                promptSections.push(`${category}
+${value}`);
+            }
+
+            if (!values['Text Placement']) {
+                promptSections.push(`Text Placement
+${textPlacement}`);
+            }
+
+            promptSections.push(`Rendering & Quality
+hyperrealistic, 8k resolution, professional quality, award-winning photography, gallery quality`);
+            promptSections.push(`Technical Tags
+--ar 2:3 --v 6.1 --style raw --s 600`);
+
+            let fullPrompt = promptSections.join('\n\n');
+            fullPrompt = enforcePromptLimit(fullPrompt);
+
+            const videoScript = [
+                'Create a short promo video concept based on this graffiti text design.',
+                '',
+                `Scene: ${locationHint}.`,
+                `Background treatment: ${backgroundHint}.`,
+                `Atmosphere: ${weatherHint}, ${timeHint}, ${seasonHint}.`,
+                `Style direction: ${artStyleHint}.`,
+                `Text placement: ${textPlacement}.`,
+                `Supporting details: ${elementHint}.`,
+                '',
+                'Shot flow:',
+                'Open with a wide establishing shot that reveals the environment before the message hits.',
+                'Push in slowly so the wording becomes the undeniable focal point.',
+                'Cut to motion-rich detail shots of paint texture, glow, reflections, and environmental movement.',
+                'Land on a polished hero frame that feels expensive, clickable, and campaign-ready.',
+                '',
+                'Voiceover / On-screen direction:',
+                `Highlight ${titleHint}.`,
+                'Keep the pacing punchy, glamorous, and street-smart.',
+                'Build one 15-second version, one 30-second version, and one 60-second version from the same visual direction.'
+            ].join('\n');
+
+            const sunoScript = [
+                'Write a Suno-ready branded song prompt based on this graffiti concept.',
+                '',
+                `Genre / Style: ${selectedGenre}`,
+                'Make the lyrics hooky, clean, memorable, and flexible enough to lean more feminine, hard, soulful, playful, or bossed-up depending on the chosen vibe.',
+                `Center the hook around: ${titleHint}.`,
+                'Create one 30-second jingle version and one 1-minute song version with a clear hook, repeatable slogan line, and polished commercial feel.',
+                '',
+                'Suggested settings:',
+                'Weirdness: 18% to 28%',
+                'Style Influence: 60% to 75%',
+                'Audio Influence: 35% to 50%',
+                '',
+                'Direction notes:',
+                'Keep the chorus easy to chant.',
+                'Leave room to switch genre, blend genres, or ignore the dropdown entirely if a custom vibe works better.',
+                'Aim for catchy, brandable, replayable energy rather than overly complex lyrics.'
+            ].join('\n');
+
+            const captionScript = [
+                'Caption Option 1',
+                `${titleHint} just got the luxury graffiti treatment. Bold, glossy, impossible to scroll past. Tap the link and grab your next digital favorite.`,
+                '',
+                'Caption Option 2',
+                `Not basic. Not forgettable. ${titleHint} was built to stop the scroll and pull people straight to the page.`,
+                '',
+                'Caption Option 3',
+                'This is the kind of AI-made visual that makes people ask where you got it. See more on the website and shop the drop.',
+                '',
+                'Caption Option 4',
+                `From ${locationHint} to a high-end campaign feel, this concept was made to sell attention first and products second. Visit the page for the full vibe.`,
+                '',
+                'Caption Option 5',
+                'Luxury energy. Street-smart edge. Brand-ready visuals. Click through and turn this look into your next product, promo, or launch graphic.'
+            ].join('\n');
+
+            const marketingScript = [
+                'Primary Hook',
+                `Turn ${titleHint} into a visual people remember in two seconds or less.`,
+                '',
+                'Core Offer Angle',
+                'Sell the generator as the shortcut to premium visuals, stronger branding, and faster content creation without staring at a blank screen.',
+                '',
+                'Traffic CTA Ideas',
+                'Visit the webpage to generate your own version.',
+                'Grab the product and start creating today.',
+                'Tap the link to unlock the full generator.',
+                'See the full collection on the site.',
+                '',
+                'Marketing Positioning',
+                'Best for creators, digital product sellers, print-on-demand shops, event brands, and social media promos that need a high-end AI look.',
+                '',
+                'Content Angle Suggestions',
+                'Show the final image first, then reveal the prompt.',
+                'Use a before-and-after post: plain text versus graffiti luxury output.',
+                'Turn one design into a reel, pin, product mockup, and landing page banner.',
+                '',
+                'Conversion Reminder',
+                'Always pair the visual with a direct CTA, a product benefit, and one reason to click right now.',
+                '',
+                'Best Use Tip',
+                `Keep the text ${textPlacement.toLowerCase()} when the goal is readability, traffic, and conversions.`
+            ].join('\n');
+
+            document.getElementById('output').value = fullPrompt;
+            document.getElementById('video_output').value = videoScript;
+            document.getElementById('suno_output').value = sunoScript;
+            document.getElementById('caption_output').value = captionScript;
+            document.getElementById('marketing_output').value = marketingScript;
+            updateLengthStatus(fullPrompt);
+        }
+
+        function randomizeForm() {
+            getAllSelects().forEach(select => {
+                if (select.id === 'preset_select') return;
+                if (lockedFields.has(select.id)) return;
+
+                const visibleOptions = Array.from(select.options).filter(opt =>
+                    opt.value !== '' && opt.value.toLowerCase() !== 'none' && !opt.hidden
+                );
+
+                if (visibleOptions.length > 0 && !(select.closest('details') && select.closest('details').classList.contains('hidden'))) {
+                    Array.from(select.options).forEach(opt => opt.selected = false);
+                    const pickCount = select.multiple ? Math.min(3, Math.max(1, Math.floor(Math.random() * 3) + 1)) : 1;
+                    const shuffled = [...visibleOptions].sort(() => Math.random() - 0.5).slice(0, pickCount);
+                    shuffled.forEach(option => option.selected = true);
+                    updateFieldState(select);
+                }
+            });
+
+            generatePrompt();
+        }
+
+        function copyPrompt(event) {
+            const output = document.getElementById('output');
+            if (output.value.trim()) {
+                output.select();
+                document.execCommand('copy');
+
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'COPIED!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            } else {
+                alert('Generate a prompt first!');
+            }
+        }
+
+        function copySpecificPrompt(targetId, event) {
+            const output = document.getElementById(targetId);
+            if (output && output.value.trim()) {
+                output.select();
+                document.execCommand('copy');
+
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'COPIED!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            } else {
+                alert('Generate a prompt first!');
+            }
+        }
+
+        function scrollToTopSmooth(event) {
+            if (event) event.preventDefault();
+            const topTarget = 0;
+            window.scrollTo({ top: topTarget, behavior: 'smooth' });
+            document.documentElement.scrollTo({ top: topTarget, behavior: 'smooth' });
+            if (document.body && typeof document.body.scrollTo === 'function') {
+                document.body.scrollTo({ top: topTarget, behavior: 'smooth' });
+            }
+        }
+
+        function scrollToBottomSmooth(event) {
+            if (event) event.preventDefault();
+            const doc = document.documentElement;
+            const body = document.body;
+            const bottomTarget = Math.max(
+                doc ? doc.scrollHeight : 0,
+                body ? body.scrollHeight : 0,
+                doc ? doc.offsetHeight : 0,
+                body ? body.offsetHeight : 0
+            );
+            window.scrollTo({ top: bottomTarget, behavior: 'smooth' });
+            if (doc) doc.scrollTo({ top: bottomTarget, behavior: 'smooth' });
+            if (body && typeof body.scrollTo === 'function') {
+                body.scrollTo({ top: bottomTarget, behavior: 'smooth' });
+            }
+        }
+
+        function clearAll() {
+            getAllSelects().forEach(select => {
+                Array.from(select.options).forEach((option, index) => {
+                    option.selected = index === 0;
+                });
+                select.classList.remove('has-value');
+            });
+
+            document.getElementById('custom_creative').value = '';
+            document.getElementById('custom_elements').value = '';
+            document.querySelectorAll('.custom-input').forEach(input => {
+                input.value = '';
+                input.style.borderColor = 'var(--border-color)';
+            });
+
+            document.getElementById('output').value = '';
+            document.getElementById('video_output').value = '';
+            document.getElementById('suno_output').value = '';
+            const captionOutput = document.getElementById('caption_output');
+            if (captionOutput) captionOutput.value = '';
+            const marketingOutput = document.getElementById('marketing_output');
+            if (marketingOutput) marketingOutput.value = '';
+            updateLengthStatus('');
+            document.getElementById('trimWarning').classList.add('hidden');
+
+            const presetSelect = document.getElementById('preset_select');
+            if (presetSelect) {
+                presetSelect.selectedIndex = 0;
+                presetSelect.classList.remove('has-value');
+            }
+
+            lockedFields.clear();
+            document.querySelectorAll('.lock-btn').forEach(btn => {
+                btn.textContent = 'UNLOCK';
+                btn.classList.remove('locked');
+                btn.title = 'Lock this field';
+            });
+
+            document.querySelectorAll('.hidden').forEach(el => {
+                el.classList.remove('hidden');
+            });
+        }
+
+
+        const PROMPT_HISTORY_KEY = 'glamorousgrammyglowup_graffiti_prompt_history';
+
+        function getPromptHistory() {
+            try {
+                const raw = localStorage.getItem(PROMPT_HISTORY_KEY);
+                const parsed = raw ? JSON.parse(raw) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function setPromptHistory(items) {
+            localStorage.setItem(PROMPT_HISTORY_KEY, JSON.stringify(items));
+        }
+
+        function renderPromptHistory() {
+            const historyList = document.getElementById('history_list');
+            const emptyState = document.getElementById('history_empty');
+            if (!historyList || !emptyState) return;
+
+            const items = getPromptHistory();
+            historyList.innerHTML = '';
+
+            if (!items.length) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            items.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'history-item';
+                const safeTitle = item.title || 'Saved Prompt';
+                const safeDate = item.savedAtLabel || '';
+                const safePreview = (item.imagePrompt || '').slice(0, 420);
+                card.innerHTML = `
+                    <div class="history-item-title">${safeTitle}</div>
+                    <div class="history-item-meta">${safeDate}</div>
+                    <div class="history-item-preview">${safePreview}</div>
+                    <div class="history-actions">
+                        <button type="button" onclick="loadPromptHistoryItem(${index})">Load</button>
+                        <button type="button" onclick="copyHistoryPrompt(${index}, event)">Copy</button>
+                        <button type="button" onclick="deletePromptHistoryItem(${index})">Delete</button>
+                    </div>
+                `;
+                historyList.appendChild(card);
+            });
+        }
+
+        function saveCurrentPrompt(event) {
+            const imagePrompt = document.getElementById('output').value.trim();
+            if (!imagePrompt) {
+                alert('Generate a prompt first!');
+                return;
+            }
+
+            const customElements = document.getElementById('custom_elements').value.trim();
+            const customCreative = document.getElementById('custom_creative').value.trim();
+            const headingSource = customElements || customCreative || 'Saved Prompt';
+            const title = headingSource.length > 60 ? headingSource.slice(0, 60) + '...' : headingSource;
+
+            const now = new Date();
+            const history = getPromptHistory();
+            history.unshift({
+                title,
+                savedAt: now.toISOString(),
+                savedAtLabel: now.toLocaleString(),
+                imagePrompt,
+                videoPrompt: document.getElementById('video_output').value || '',
+                sunoPrompt: document.getElementById('suno_output').value || '',
+                captionPrompt: document.getElementById('caption_output').value || '',
+                marketingPrompt: document.getElementById('marketing_output').value || ''
+            });
+
+            setPromptHistory(history.slice(0, 30));
+            renderPromptHistory();
+
+            if (event && event.target) {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Saved!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 1500);
+            }
+        }
+
+        function loadPromptHistoryItem(index) {
+            const item = getPromptHistory()[index];
+            if (!item) return;
+            document.getElementById('output').value = item.imagePrompt || '';
+            document.getElementById('video_output').value = item.videoPrompt || '';
+            document.getElementById('suno_output').value = item.sunoPrompt || '';
+            document.getElementById('caption_output').value = item.captionPrompt || '';
+            document.getElementById('marketing_output').value = item.marketingPrompt || '';
+            updateLengthStatus(item.imagePrompt || '');
+        }
+
+        function copyHistoryPrompt(index, event) {
+            const item = getPromptHistory()[index];
+            if (!item || !item.imagePrompt) return;
+            navigator.clipboard.writeText(item.imagePrompt).then(() => {
+                if (event && event.target) {
+                    const button = event.target;
+                    const originalText = button.textContent;
+                    button.textContent = 'COPIED!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                    }, 1500);
+                }
+            }).catch(() => {});
+        }
+
+        function deletePromptHistoryItem(index) {
+            const history = getPromptHistory();
+            history.splice(index, 1);
+            setPromptHistory(history);
+            renderPromptHistory();
+        }
+
+        function clearPromptHistory(event) {
+            setPromptHistory([]);
+            renderPromptHistory();
+            if (event && event.target) {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Cleared';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 1500);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            populateDynamicSelects();
+            injectCustomBoxesIntoDetails();
+            updateLengthStatus('');
+            renderPromptHistory();
+            setTimeout(() => {
+                applyConditionalLogic();
+                getAllSelects().forEach(select => updateFieldState(select));
+            }, 100);
+        });
+    </script>
+</body>
+</html>
